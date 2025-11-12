@@ -2,8 +2,8 @@
 # Banner
 banner:
   title: "Welkom bij Visu Vista"
-  content: "Jouw Visie, Onze Missie. Wij zijn toegewijd aan het leveren van excellentie in alles wat we doen."
-  image: "/images/banner.png"
+  content: "Dromen Visualiseren, Realiteit Creëren. Wij transformeren uw visie tot verbluffende visuele ervaringen."
+  image: "/images/house_transformation.mp4"
   button:
     enable: true
     label: "Meer Weten"
@@ -12,7 +12,7 @@ banner:
 # Features
 features:
   - title: "Waarom Visu Vista"
-    image: "/images/service-1.png"
+    image: "/images/banner.png"
     content: "Visu Vista biedt uitgebreide oplossingen op maat gemaakt voor uw behoeften."
     bulletpoints:
       - "Expert team met jaren ervaring"

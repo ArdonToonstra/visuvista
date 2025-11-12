@@ -2,8 +2,8 @@
 # Banner
 banner:
   title: "Welcome to Visu Vista"
-  content: "Your Vision, Our Mission. We are committed to delivering excellence in everything we do."
-  image: "/images/banner.png"
+  content: "Visualizing Dreams, Creating Reality. We transform your vision into stunning visual experiences."
+  image: "/images/house_transformation.mp4"
   button:
     enable: true
     label: "Learn More"
@@ -12,7 +12,7 @@ banner:
 # Features
 features:
   - title: "Why Choose Visu Vista"
-    image: "/images/service-1.png"
+    image: "/images/banner.png"
     content: "Visu Vista provides comprehensive solutions tailored to your needs."
     bulletpoints:
       - "Expert team with years of experience"

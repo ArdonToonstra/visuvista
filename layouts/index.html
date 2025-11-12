@@ -1,5 +1,5 @@
 {{ define "main" }}
-  <!-- Banner -->
+  <!-- Video Hero Banner -->
   {{ with .Params.banner }}
     <section class="section pt-14">
       <div class="container">
@@ -26,59 +26,30 @@
             {{ end }}
           </div>
           <div class="col-12">
-            {{ partial "image" (dict "Src" .image "Alt" "Banner image" "Loading" "eager" "Class" "mx-auto lg:!max-w-[800px]" "DisplayXL" "800x" ) }}
+            <div class="video-container mx-auto" style="max-width: 900px;">
+              {{ $video := resources.Get "images/house_transformation.mp4" }}
+              {{ if $video }}
+              <video 
+                class="w-full h-auto rounded-lg shadow-lg" 
+                autoplay 
+                muted 
+                loop 
+                playsinline
+                style="display: block;">
+                <source src="{{ $video.Permalink }}" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              {{ else }}
+              <p>Video not found</p>
+              {{ end }}
+            </div>
           </div>
         </div>
       </div>
     </section>
   {{ end }}
-  <!-- /Banner -->
+  <!-- /Video Hero Banner -->
 
-  <!-- Featured Video Section -->
-  <section class="section bg-gradient">
-    <div class="container">
-      <div class="row justify-center">
-        <div class="lg:col-10 text-center">
-          <h2 class="mb-6 text-h2">
-            {{ if eq .Site.Language.Lang "es" }}
-              Transformación de Casa
-            {{ else if eq .Site.Language.Lang "nl" }}
-              Huis Transformatie
-            {{ else }}
-              House Transformation
-            {{ end }}
-          </h2>
-          <p class="mb-8 text-lg">
-            {{ if eq .Site.Language.Lang "es" }}
-              Mira nuestro último proyecto de transformación de casa cobrar vida. Ve cómo convertimos la visión en realidad.
-            {{ else if eq .Site.Language.Lang "nl" }}
-              Bekijk ons nieuwste huis transformatie project tot leven komen. Zie hoe we visie omzetten in werkelijkheid.
-            {{ else }}
-              Watch our latest house transformation project come to life. See how we turn vision into reality.
-            {{ end }}
-          </p>
-          <div class="video-container mx-auto" style="max-width: 900px;">
-            {{ $video := resources.Get "images/house_transformation.mp4" }}
-            {{ if $video }}
-            <video 
-              class="w-full h-auto" 
-              autoplay 
-              muted 
-              loop 
-              playsinline
-              style="display: block;">
-              <source src="{{ $video.Permalink }}" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
-            {{ else }}
-            <p>Video not found</p>
-            {{ end }}
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- /Featured Video Section -->
 
   <!-- Services Showcase -->
   <section class="section">
