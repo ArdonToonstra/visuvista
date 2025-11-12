@@ -1,0 +1,94 @@
+/* Minimal styling for video section */
+.video-container {
+  position: relative;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.video-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+.video-container video {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Responsive video adjustments */
+@media (max-width: 768px) {
+  .video-container {
+    border-radius: 10px;
+    margin: 0 15px;
+  }
+}
+
+/* Ensure video doesn't break layout */
+.video-container video {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Service Cards Styling */
+.service-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.service-card i {
+  color: #0496FF;
+  margin-bottom: 1rem;
+}
+
+.service-card h3 {
+  color: #2C3E50;
+  margin-bottom: 1rem;
+}
+
+.service-card p {
+  color: #34495E;
+  flex-grow: 1;
+}
+
+.service-card ul {
+  margin-top: auto;
+}
+
+.service-card .fa-check {
+  color: #0496FF;
+  font-size: 0.9rem;
+}
+
+/* Services section styling */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+/* Responsive adjustments for service cards */
+@media (max-width: 768px) {
+  .service-card {
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .service-card i {
+    font-size: 2.5rem;
+  }
+}

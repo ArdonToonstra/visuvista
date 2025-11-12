@@ -11,7 +11,7 @@ banner:
 
 # Features
 features:
-  - title: "Why lsdjflsdjfsldfjsldf Visu Vista"
+  - title: "Why Choose Visu Vista"
     image: "/images/service-1.png"
     content: "Visu Vista provides comprehensive solutions tailored to your needs."
     bulletpoints:

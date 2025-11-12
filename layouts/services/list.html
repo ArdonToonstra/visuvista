@@ -1,0 +1,91 @@
+{{ define "main" }}
+<section class="section pt-14">
+  <div class="container">
+    <div class="row justify-center">
+      <div class="lg:col-8 text-center">
+        <h1 class="mb-4">{{ .Title }}</h1>
+        <p class="mb-8 text-lg">{{ .Params.description }}</p>
+      </div>
+    </div>
+
+    <!-- Services Grid -->
+    {{ with .Params.services }}
+      <div class="row gy-4 mb-12">
+        {{ range . }}
+          <div class="lg:col-6">
+            <div class="service-card h-full">
+              <div class="mb-4">
+                <i class="{{ .icon }} text-4xl text-primary mb-3"></i>
+                <h3 class="text-h4 mb-3">{{ .title }}</h3>
+              </div>
+              <p class="mb-4">{{ .description }}</p>
+              
+              <div class="row">
+                <div class="col-12">
+                  <h5 class="mb-3">Key Features:</h5>
+                  <ul class="list-unstyled mb-4">
+                    {{ range .features }}
+                      <li class="mb-2">
+                        <i class="fa-solid fa-check text-primary me-2"></i>
+                        {{ . }}
+                      </li>
+                    {{ end }}
+                  </ul>
+                </div>
+              </div>
+              
+              <div class="mt-auto">
+                <p class="text-sm">{{ .details }}</p>
+              </div>
+            </div>
+          </div>
+        {{ end }}
+      </div>
+    {{ end }}
+
+    <!-- Main Content -->
+    <div class="row justify-center">
+      <div class="lg:col-10">
+        <div class="content">
+          {{ .Content }}
+        </div>
+      </div>
+    </div>
+
+    <!-- Call to Action -->
+    <div class="row justify-center mt-12">
+      <div class="lg:col-8 text-center">
+        <div class="bg-gradient p-8 rounded-lg">
+          <h3 class="mb-4">
+            {{ if eq .Site.Language.Lang "es" }}
+              ¿Listo para Transformar Tu Espacio?
+            {{ else if eq .Site.Language.Lang "nl" }}
+              Klaar om Uw Ruimte te Transformeren?
+            {{ else }}
+              Ready to Transform Your Space?
+            {{ end }}
+          </h3>
+          <p class="mb-6">
+            {{ if eq .Site.Language.Lang "es" }}
+              Contáctanos hoy para una consulta gratuita y descubre cómo podemos hacer realidad tu visión.
+            {{ else if eq .Site.Language.Lang "nl" }}
+              Neem vandaag contact met ons op voor een gratis consultatie en ontdek hoe wij uw visie werkelijkheid kunnen maken.
+            {{ else }}
+              Contact us today for a free consultation and discover how we can make your vision a reality.
+            {{ end }}
+          </p>
+          <a href="/contact" class="btn btn-primary">
+            {{ if eq .Site.Language.Lang "es" }}
+              Obtener Consulta Gratuita
+            {{ else if eq .Site.Language.Lang "nl" }}
+              Gratis Consultatie Krijgen
+            {{ else }}
+              Get Free Consultation
+            {{ end }}
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}

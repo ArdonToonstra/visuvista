@@ -1,0 +1,484 @@
+{{ define "main" }}
+  <!-- Banner -->
+  {{ with .Params.banner }}
+    <section class="section pt-14">
+      <div class="container">
+        <div class="row justify-center">
+          <div class="lg:col-7 md:col-9 mb-8 text-center">
+            <h1 class="mb-4 text-h3 lg:text-h1">
+              {{ .title | markdownify }}
+            </h1>
+            <p class="mb-8">
+              {{ .content | markdownify }}
+            </p>
+            {{ with .button }}
+              {{ if .enable }}
+                <a
+                  class="btn btn-primary"
+                  href="{{ .link | absURL }}"
+                  {{ if strings.HasPrefix .link `http` }}
+                    target="_blank" rel="noopener"
+                  {{ end }}>
+                  {{ .label }}
+                  <i class="fa fa-arrow-right pl-2"></i>
+                </a>
+              {{ end }}
+            {{ end }}
+          </div>
+          <div class="col-12">
+            {{ partial "image" (dict "Src" .image "Alt" "Banner image" "Loading" "eager" "Class" "mx-auto lg:!max-w-[800px]" "DisplayXL" "800x" ) }}
+          </div>
+        </div>
+      </div>
+    </section>
+  {{ end }}
+  <!-- /Banner -->
+
+  <!-- Featured Video Section -->
+  <section class="section bg-gradient">
+    <div class="container">
+      <div class="row justify-center">
+        <div class="lg:col-10 text-center">
+          <h2 class="mb-6 text-h2">
+            {{ if eq .Site.Language.Lang "es" }}
+              Transformación de Casa
+            {{ else if eq .Site.Language.Lang "nl" }}
+              Huis Transformatie
+            {{ else }}
+              House Transformation
+            {{ end }}
+          </h2>
+          <p class="mb-8 text-lg">
+            {{ if eq .Site.Language.Lang "es" }}
+              Mira nuestro último proyecto de transformación de casa cobrar vida. Ve cómo convertimos la visión en realidad.
+            {{ else if eq .Site.Language.Lang "nl" }}
+              Bekijk ons nieuwste huis transformatie project tot leven komen. Zie hoe we visie omzetten in werkelijkheid.
+            {{ else }}
+              Watch our latest house transformation project come to life. See how we turn vision into reality.
+            {{ end }}
+          </p>
+          <div class="video-container mx-auto" style="max-width: 900px;">
+            {{ $video := resources.Get "images/house_transformation.mp4" }}
+            {{ if $video }}
+            <video 
+              class="w-full h-auto" 
+              autoplay 
+              muted 
+              loop 
+              playsinline
+              style="display: block;">
+              <source src="{{ $video.Permalink }}" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+            {{ else }}
+            <p>Video not found</p>
+            {{ end }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- /Featured Video Section -->
+
+  <!-- Services Showcase -->
+  <section class="section">
+    <div class="container">
+      <div class="row justify-center">
+        <div class="lg:col-8 text-center">
+          <h2 class="mb-4 text-h2">
+            {{ if eq .Site.Language.Lang "es" }}
+              Nuestros Servicios
+            {{ else if eq .Site.Language.Lang "nl" }}
+              Onze Diensten
+            {{ else }}
+              Our Services
+            {{ end }}
+          </h2>
+          <p class="mb-12 text-lg">
+            {{ if eq .Site.Language.Lang "es" }}
+              Utilizamos tecnología de vanguardia para transformar espacios y crear experiencias visuales extraordinarias.
+            {{ else if eq .Site.Language.Lang "nl" }}
+              Wij gebruiken geavanceerde technologie om ruimtes te transformeren en buitengewone visuele ervaringen te creëren.
+            {{ else }}
+              We use cutting-edge technology to transform spaces and create extraordinary visual experiences.
+            {{ end }}
+          </p>
+        </div>
+      </div>
+      <div class="row gy-4">
+        <!-- LiDAR Scanning -->
+        <div class="md:col-6 lg:col-4">
+          <div class="service-card h-full bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+            <div class="mb-4">
+              <i class="fa-solid fa-cube text-4xl text-primary mb-3"></i>
+              <h3 class="text-h4 mb-3">
+                {{ if eq .Site.Language.Lang "es" }}
+                  Escaneo LiDAR
+                {{ else if eq .Site.Language.Lang "nl" }}
+                  LiDAR Scanning
+                {{ else }}
+                  LiDAR Scanning
+                {{ end }}
+              </h3>
+            </div>
+            <p class="mb-4">
+              {{ if eq .Site.Language.Lang "es" }}
+                Capturamos cada detalle con precisión milimétrica usando tecnología de escaneo 3D avanzada.
+              {{ else if eq .Site.Language.Lang "nl" }}
+                Wij leggen elk detail vast met millimeter-nauwkeurigheid met behulp van geavanceerde 3D-scantechnologie.
+              {{ else }}
+                We capture every detail with millimeter precision using advanced 3D scanning technology.
+              {{ end }}
+            </p>
+            <ul class="list-unstyled mb-4">
+              <li class="mb-2"><i class="fa-solid fa-check text-primary me-2"></i>
+                {{ if eq .Site.Language.Lang "es" }}
+                  Nubes de puntos 3D
+                {{ else if eq .Site.Language.Lang "nl" }}
+                  3D puntenwolken
+                {{ else }}
+                  3D Point Clouds
+                {{ end }}
+              </li>
+              <li class="mb-2"><i class="fa-solid fa-check text-primary me-2"></i>
+                {{ if eq .Site.Language.Lang "es" }}
+                  Planos precisos
+                {{ else if eq .Site.Language.Lang "nl" }}
+                  Nauwkeurige plattegronden
+                {{ else }}
+                  Accurate Floor Plans
+                {{ end }}
+              </li>
+              <li class="mb-2"><i class="fa-solid fa-check text-primary me-2"></i>
+                {{ if eq .Site.Language.Lang "es" }}
+                  Imágenes fotorrealistas
+                {{ else if eq .Site.Language.Lang "nl" }}
+                  Fotorealistische beelden
+                {{ else }}
+                  Photorealistic Images
+                {{ end }}
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Interior Design -->
+        <div class="md:col-6 lg:col-4">
+          <div class="service-card h-full bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+            <div class="mb-4">
+              <i class="fa-solid fa-palette text-4xl text-primary mb-3"></i>
+              <h3 class="text-h4 mb-3">
+                {{ if eq .Site.Language.Lang "es" }}
+                  Diseño de Interiores
+                {{ else if eq .Site.Language.Lang "nl" }}
+                  Interieurontwerp
+                {{ else }}
+                  Interior Design
+                {{ end }}
+              </h3>
+            </div>
+            <p class="mb-4">
+              {{ if eq .Site.Language.Lang "es" }}
+                Diseño basado en datos reales del espacio, desde planes de iluminación hasta selección de materiales.
+              {{ else if eq .Site.Language.Lang "nl" }}
+                Ontwerp gebaseerd op echte ruimtegegevens, van lichtplannen tot materiaalselectie.
+              {{ else }}
+                Data-driven design based on real space measurements, from lighting plans to material selection.
+              {{ end }}
+            </p>
+            <ul class="list-unstyled mb-4">
+              <li class="mb-2"><i class="fa-solid fa-check text-primary me-2"></i>
+                {{ if eq .Site.Language.Lang "es" }}
+                  Planes de iluminación
+                {{ else if eq .Site.Language.Lang "nl" }}
+                  Lichtplannen
+                {{ else }}
+                  Lighting Plans
+                {{ end }}
+              </li>
+              <li class="mb-2"><i class="fa-solid fa-check text-primary me-2"></i>
+                {{ if eq .Site.Language.Lang "es" }}
+                  Selección de mobiliario
+                {{ else if eq .Site.Language.Lang "nl" }}
+                  Meubilair selectie
+                {{ else }}
+                  Furniture Selection
+                {{ end }}
+              </li>
+              <li class="mb-2"><i class="fa-solid fa-check text-primary me-2"></i>
+                {{ if eq .Site.Language.Lang "es" }}
+                  Esquemas de materiales
+                {{ else if eq .Site.Language.Lang "nl" }}
+                  Materiaal schema's
+                {{ else }}
+                  Material Schemes
+                {{ end }}
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Renovation Visualization -->
+        <div class="md:col-6 lg:col-4">
+          <div class="service-card h-full bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+            <div class="mb-4">
+              <i class="fa-solid fa-drafting-compass text-4xl text-primary mb-3"></i>
+              <h3 class="text-h4 mb-3">
+                {{ if eq .Site.Language.Lang "es" }}
+                  Visualización de Renovaciones
+                {{ else if eq .Site.Language.Lang "nl" }}
+                  Renovatie Visualisatie
+                {{ else }}
+                  Renovation Visualization
+                {{ end }}
+              </h3>
+            </div>
+            <p class="mb-4">
+              {{ if eq .Site.Language.Lang "es" }}
+                Ve tu renovación antes de construir con visualizaciones 3D fotorrealistas y comparaciones detalladas.
+              {{ else if eq .Site.Language.Lang "nl" }}
+                Zie uw renovatie voordat u bouwt met fotorealistische 3D visualisaties en gedetailleerde vergelijkingen.
+              {{ else }}
+                See your renovation before you build with photorealistic 3D visualizations and detailed comparisons.
+              {{ end }}
+            </p>
+            <ul class="list-unstyled mb-4">
+              <li class="mb-2"><i class="fa-solid fa-check text-primary me-2"></i>
+                {{ if eq .Site.Language.Lang "es" }}
+                  Antes y después
+                {{ else if eq .Site.Language.Lang "nl" }}
+                  Voor en na
+                {{ else }}
+                  Before & After
+                {{ end }}
+              </li>
+              <li class="mb-2"><i class="fa-solid fa-check text-primary me-2"></i>
+                {{ if eq .Site.Language.Lang "es" }}
+                  Maquetas 3D
+                {{ else if eq .Site.Language.Lang "nl" }}
+                  3D mockups
+                {{ else }}
+                  3D Mockups
+                {{ end }}
+              </li>
+              <li class="mb-2"><i class="fa-solid fa-check text-primary me-2"></i>
+                {{ if eq .Site.Language.Lang "es" }}
+                  Planos de construcción
+                {{ else if eq .Site.Language.Lang "nl" }}
+                  Bouwtekeningen
+                {{ else }}
+                  Construction Drawings
+                {{ end }}
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- VR Tours -->
+        <div class="md:col-6 lg:col-4">
+          <div class="service-card h-full bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+            <div class="mb-4">
+              <i class="fa-solid fa-vr-cardboard text-4xl text-primary mb-3"></i>
+              <h3 class="text-h4 mb-3">
+                {{ if eq .Site.Language.Lang "es" }}
+                  Tours VR
+                {{ else if eq .Site.Language.Lang "nl" }}
+                  VR Tours
+                {{ else }}
+                  VR Tours
+                {{ end }}
+              </h3>
+            </div>
+            <p class="mb-4">
+              {{ if eq .Site.Language.Lang "es" }}
+                Experimenta espacios de forma inmersiva con realidad virtual y explora diferentes opciones de diseño.
+              {{ else if eq .Site.Language.Lang "nl" }}
+                Ervaar ruimtes op immersieve wijze met virtual reality en verken verschillende ontwerpopties.
+              {{ else }}
+                Experience spaces immersively with virtual reality and explore different design options.
+              {{ end }}
+            </p>
+            <ul class="list-unstyled mb-4">
+              <li class="mb-2"><i class="fa-solid fa-check text-primary me-2"></i>
+                {{ if eq .Site.Language.Lang "es" }}
+                  Recorridos interactivos
+                {{ else if eq .Site.Language.Lang "nl" }}
+                  Interactieve rondleidingen
+                {{ else }}
+                  Interactive Walkthroughs
+                {{ end }}
+              </li>
+              <li class="mb-2"><i class="fa-solid fa-check text-primary me-2"></i>
+                {{ if eq .Site.Language.Lang "es" }}
+                  Múltiples diseños
+                {{ else if eq .Site.Language.Lang "nl" }}
+                  Meerdere ontwerpen
+                {{ else }}
+                  Multiple Designs
+                {{ end }}
+              </li>
+              <li class="mb-2"><i class="fa-solid fa-check text-primary me-2"></i>
+                {{ if eq .Site.Language.Lang "es" }}
+                  Colaboración remota
+                {{ else if eq .Site.Language.Lang "nl" }}
+                  Remote samenwerking
+                {{ else }}
+                  Remote Collaboration
+                {{ end }}
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Construction Documentation -->
+        <div class="md:col-6 lg:col-4">
+          <div class="service-card h-full bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+            <div class="mb-4">
+              <i class="fa-solid fa-hard-hat text-4xl text-primary mb-3"></i>
+              <h3 class="text-h4 mb-3">
+                {{ if eq .Site.Language.Lang "es" }}
+                  Documentación de Construcción
+                {{ else if eq .Site.Language.Lang "nl" }}
+                  Bouw Documentatie
+                {{ else }}
+                  Construction Documentation
+                {{ end }}
+              </h3>
+            </div>
+            <p class="mb-4">
+              {{ if eq .Site.Language.Lang "es" }}
+                Seguimiento preciso del progreso de construcción con documentación detallada y control de calidad.
+              {{ else if eq .Site.Language.Lang "nl" }}
+                Nauwkeurige monitoring van bouwvoortgang met gedetailleerde documentatie en kwaliteitscontrole.
+              {{ else }}
+                Accurate construction progress tracking with detailed documentation and quality control.
+              {{ end }}
+            </p>
+            <ul class="list-unstyled mb-4">
+              <li class="mb-2"><i class="fa-solid fa-check text-primary me-2"></i>
+                {{ if eq .Site.Language.Lang "es" }}
+                  Monitoreo de progreso
+                {{ else if eq .Site.Language.Lang "nl" }}
+                  Voortgangsmonitoring
+                {{ else }}
+                  Progress Monitoring
+                {{ end }}
+              </li>
+              <li class="mb-2"><i class="fa-solid fa-check text-primary me-2"></i>
+                {{ if eq .Site.Language.Lang "es" }}
+                  Control de calidad
+                {{ else if eq .Site.Language.Lang "nl" }}
+                  Kwaliteitscontrole
+                {{ else }}
+                  Quality Control
+                {{ end }}
+              </li>
+              <li class="mb-2"><i class="fa-solid fa-check text-primary me-2"></i>
+                {{ if eq .Site.Language.Lang "es" }}
+                  Reportes de cumplimiento
+                {{ else if eq .Site.Language.Lang "nl" }}
+                  Compliance rapportage
+                {{ else }}
+                  Compliance Reporting
+                {{ end }}
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="row justify-center mt-8">
+        <div class="text-center">
+          <a href="/services" class="btn btn-primary">
+            {{ if eq .Site.Language.Lang "es" }}
+              Ver Todos los Servicios
+            {{ else if eq .Site.Language.Lang "nl" }}
+              Bekijk Alle Diensten
+            {{ else }}
+              View All Services
+            {{ end }}
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- /Services Showcase -->
+
+  <!-- Features -->
+  {{ range $i, $e:= .Params.features }}
+    <section class="section-sm {{ if (modBool $i 2) }}bg-gradient{{ end }}">
+      <div class="container">
+        <div class="row items-center justify-between">
+          <div
+            class="mb:md-0 {{ if not (modBool $i 2) }}
+              md:order-2
+            {{ end }} md:col-5 mb-6">
+            {{ partial "image" (dict "Src" .image "Alt" "feature image" "DisplayXL" "520x" "DisplayLG" "425x" "DisplayMD" "360x") }}
+          </div>
+          <div
+            class="{{ if not (modBool $i 2) }}
+              md:order-1
+            {{ end }} md:col-7">
+            <div
+              class="{{ if not (modBool $i 2) }}
+                md:pr-6
+              {{ else }}
+                md:pl-6
+              {{ end }}">
+              <h2 class="mb-4">
+                {{ .title | markdownify }}
+              </h2>
+              <p class="mb-8 text-lg">
+                {{ .content | markdownify }}
+              </p>
+              <ul>
+                {{ range .bulletpoints }}
+                  <li class="relative mb-4 pl-6">
+                    <i class="fa fa-check absolute left-0 top-1.5 text-primary"></i>
+                    {{ . | markdownify }}
+                  </li>
+                {{ end }}
+              </ul>
+              {{ with .button }}
+                {{ if .enable }}
+                  <a class="btn btn-primary mt-5" href="{{ .link | absURL }}">
+                    {{ .label }}
+                    <i class="fa fa-arrow-right pl-2"></i>
+                  </a>
+                {{ end }}
+              {{ end }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  {{ end }}
+  <!-- /Features -->
+
+  <!-- workflow -->
+  {{ range $i, $e:= .Params.workflow }} 
+    <section class="section pb-0">
+      <div class="mb-8 text-center">
+        {{ with .title }}<h2 class="mb-4">{{ . }}</h2>{{ end }}
+        {{ with .description }}<p>{{ . }}</p>{{ end }}
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="mx-auto lg:col-10">
+            <div class="row">
+              {{ range $i, $e := .image }}<div class="mb-8 md:col-6">
+                {{ partial "image" (dict "Src" . "Alt" "workflow image" "DisplayXL" "492x" "DisplayLG" "400x" "DisplayMD" "360x") }}
+              </div>{{ end }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  {{ end }}
+  <!-- ./workflow -->
+
+  <!-- Call to action -->
+  {{ partial "call-to-action.html" . }}
+  <!-- /Call to action -->
+
+{{ end }}

@@ -11,6 +11,8 @@ banner:
 
 # Features
 features:
+# Features
+features:
   - title: "Por qué Elegir Visu Vista"
     image: "/images/service-1.png"
     content: "Visu Vista proporciona soluciones integrales adaptadas a tus necesidades."
