@@ -50,15 +50,35 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: 'npm'
+
+      - name: Check for npm dependencies
+        id: npm-check
+        run: |
+          if [ -f package.json ]; then
+            echo "has-package-json=true" >> $GITHUB_OUTPUT
+            if [ -f package-lock.json ]; then
+              echo "has-lockfile=true" >> $GITHUB_OUTPUT
+              echo "install-command=npm ci" >> $GITHUB_OUTPUT
+            else
+              echo "has-lockfile=false" >> $GITHUB_OUTPUT
+              echo "install-command=npm install" >> $GITHUB_OUTPUT
+            fi
+          else
+            echo "has-package-json=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Cache npm dependencies
+        if: steps.npm-check.outputs.has-package-json == 'true' && steps.npm-check.outputs.has-lockfile == 'true'
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
 
       - name: Install npm dependencies
-        run: |
-          if [ -f package-lock.json ]; then
-            npm ci
-          elif [ -f package.json ]; then
-            npm install
-          fi
+        if: steps.npm-check.outputs.has-package-json == 'true'
+        run: ${{ steps.npm-check.outputs.install-command }}
 
       - name: Setup Pages
         id: pages
@@ -105,7 +125,7 @@ jobs:
         run: |
           if [ "${{ needs.deploy.result }}" == "success" ]; then
             echo "✅ Deployment successful!"
-            echo "🌐 Site URL: ${{ needs.deploy.outputs.page_url }}"
+            echo "🌐 Site will be available at GitHub Pages URL"
           else
             echo "❌ Deployment failed!"
             exit 1
