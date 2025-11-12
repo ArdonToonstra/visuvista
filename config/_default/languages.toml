@@ -1,6 +1,23 @@
 ################ English language ##################
 [en]
-languageName = "En"
+languageName = "English"
 languageCode = "en-us"
-contentDir = "content/english"
+contentDir = "content/en"
 weight = 1
+title = "Visu Vista"
+
+################ Spanish language ##################
+[es]
+languageName = "Español"
+languageCode = "es-es"
+contentDir = "content/es"
+weight = 2
+title = "Visu Vista"
+
+################ Dutch language ##################
+[nl]
+languageName = "Nederlands"
+languageCode = "nl-nl"
+contentDir = "content/nl"
+weight = 3
+title = "Visu Vista"

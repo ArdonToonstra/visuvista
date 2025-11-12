@@ -1,0 +1,53 @@
+############# Dutch navigation ##############
+
+# main menu
+[[main]]
+name = "Home"
+url = "/"
+weight = 1
+
+[[main]]
+name = "Over Ons"
+url = "/about"
+weight = 2
+
+[[main]]
+name = "Diensten"
+url = "/services"
+weight = 3
+
+[[main]]
+name = "Portfolio"
+url = "/portfolio"
+weight = 4
+
+[[main]]
+name = "Contact"
+url = "/contact"
+weight = 5
+
+# footer menu
+[[footer]]
+name = "Home"
+url = "/"
+weight = 1
+
+[[footer]]
+name = "Over Ons"
+url = "/about"
+weight = 2
+
+[[footer]]
+name = "Diensten"
+url = "/services"
+weight = 3
+
+[[footer]]
+name = "Portfolio"
+url = "/portfolio"
+weight = 4
+
+[[footer]]
+name = "Contact"
+url = "/contact"
+weight = 5

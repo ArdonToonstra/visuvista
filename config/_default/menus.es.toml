@@ -1,0 +1,53 @@
+############# Spanish navigation ##############
+
+# main menu
+[[main]]
+name = "Inicio"
+url = "/"
+weight = 1
+
+[[main]]
+name = "Acerca de"
+url = "/about"
+weight = 2
+
+[[main]]
+name = "Servicios"
+url = "/services"
+weight = 3
+
+[[main]]
+name = "Portafolio"
+url = "/portfolio"
+weight = 4
+
+[[main]]
+name = "Contacto"
+url = "/contact"
+weight = 5
+
+# footer menu
+[[footer]]
+name = "Inicio"
+url = "/"
+weight = 1
+
+[[footer]]
+name = "Acerca de"
+url = "/about"
+weight = 2
+
+[[footer]]
+name = "Servicios"
+url = "/services"
+weight = 3
+
+[[footer]]
+name = "Portafolio"
+url = "/portfolio"
+weight = 4
+
+[[footer]]
+name = "Contacto"
+url = "/contact"
+weight = 5
