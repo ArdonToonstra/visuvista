@@ -1,0 +1,55 @@
+# Hugo default output directory
+/public/
+/resources/
+
+# Hugo cache directory
+/.hugo_build.lock
+
+# Temporary lock file while building
+/.hugo_build_cache.lock
+
+# Hugo stats file
+/hugo_stats.json
+
+# Node modules (if using npm/yarn for theme development)
+node_modules/
+
+# Package manager lock files
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Build artifacts
+*.log
+*.tar.gz
+*.zip
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE/Editor specific files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.settings/
+.classpath
+
+# Temporary files
+/tmp/
+*.tmp
+*.bak
+*.cache
+
+# Environment files
+.env
+.env.local
+.env.*.local
