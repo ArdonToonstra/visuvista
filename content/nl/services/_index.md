@@ -1,7 +1,7 @@
 ---
 title: "Onze Diensten"
 draft: false
-description: "Uitgebreide visualisatie en ontwerpservices met behulp van geavanceerde technologie"
+description: "Uitgebreide visualisatie en ontwerpservices met behulp van geavanceerde technologie. Wij opereren in Spanje, tussen Alicante en Valencia."
 
 # Services sections
 services:

@@ -1,7 +1,7 @@
 ---
 title: "Our Services"
 draft: false
-description: "Comprehensive visualization and design services using cutting-edge technology"
+description: "Comprehensive visualization and design services using advanced technology. We operate in Spain, between Alicante and Valencia."
 
 # Services sections
 services:

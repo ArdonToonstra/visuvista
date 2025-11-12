@@ -20,29 +20,4 @@ features:
       enable: false
       label: "Aan de Slag"
       link: "#"
-
-  - title: "Onze Diensten"
-    image: "/images/service-2.png"
-    content: "Wij bieden een breed scala aan diensten om aan uw zakelijke behoeften te voldoen."
-    bulletpoints:
-      - "Advies Diensten"
-      - "Projectmanagement"
-      - "Technische Ondersteuning"
-    button:
-      enable: true
-      label: "Neem Contact Op"
-      link: "/contact"
-
-  - title: "Onze Toewijding"
-    image: "/images/service-3.png"
-    content: "Wij zijn toegewijd aan het bieden van de beste oplossingen en ondersteuning aan onze klanten."
-    bulletpoints:
-      - "24/7 Ondersteuning Beschikbaar"
-      - "Flexibele Oplossingen"
-      - "Continue Verbetering"
-      - "Industrie Best Practices"
-    button:
-      enable: false
-      label: "Meer Weten"
-      link: "#"
 ---

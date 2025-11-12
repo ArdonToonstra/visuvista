@@ -1,7 +1,7 @@
 ---
 title: "Nuestros Servicios"
 draft: false
-description: "Servicios integrales de visualización y diseño utilizando tecnología de vanguardia"
+description: "Servicios integrales de visualización y diseño utilizando tecnología avanzada. Operamos en España, entre Alicante y Valencia."
 
 # Services sections
 services:
