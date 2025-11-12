@@ -1,8 +1,5 @@
 ---
-title: "Over Ons"
+title: "Over Visu Vista"
 draft: false
+description: "Ontmoet Matthijs Smidt, ook wel 'Tikkie Anders' genoemd. De creatieve visionair achter Visu Vista met een passie voor creativiteit en kunst."
 ---
-
-# Over Visu Vista
-
-Welkom op onze Over Ons pagina. Deze inhoud zal worden bijgewerkt met informatie over ons bedrijf, missie en waarden.

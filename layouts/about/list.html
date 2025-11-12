@@ -1,0 +1,375 @@
+{{ define "main" }}
+{{ $lang := .Site.Language.Lang }}
+
+<section class="section pt-14 pb-0">
+  <div class="container">
+    <!-- Hero Banner with Tikkie Anders Image -->
+    <div class="row justify-center mb-16">
+      <div class="lg:col-10">
+        <div class="relative overflow-hidden rounded-3xl bg-gradient-to-r from-primary/10 to-primary/5 p-8 md:p-12">
+          <div class="absolute inset-0 opacity-20">
+            {{ $tikkieImage := resources.Get "images/tikkieanders.jpeg" }}
+            {{ if $tikkieImage }}
+              {{ $tikkieImageProcessed := $tikkieImage.Resize "1200x400 webp" }}
+              <img src="{{ $tikkieImageProcessed.RelPermalink }}" alt="Tikkie Anders" class="w-full h-full object-cover" />
+            {{ end }}
+          </div>
+          <div class="relative z-10 text-center">
+            <h1 class="text-h1 mb-6 text-dark">
+              {{ if eq $lang "es" }}
+                Conoce a Matthijs
+              {{ else if eq $lang "nl" }}
+                Ontmoet Matthijs
+              {{ else }}
+                Meet Matthijs
+              {{ end }}
+            </h1>
+            <p class="text-xl text-dark/80 max-w-2xl mx-auto">
+              {{ if eq $lang "es" }}
+                El visionario creativo detrás de Visu Vista
+              {{ else if eq $lang "nl" }}
+                De creatieve visionair achter Visu Vista
+              {{ else }}
+                The creative visionary behind Visu Vista
+              {{ end }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main About Content -->
+    <div class="row justify-center">
+      <div class="lg:col-10">
+        <div class="grid lg:grid-cols-2 gap-12 items-center mb-16">
+          <!-- Profile Image -->
+          <div class="order-2 lg:order-1">
+            <div class="relative">
+              {{ $profileImage := resources.Get "images/profiel_mattie.jpg" }}
+              {{ if $profileImage }}
+                {{ $profileImageProcessed := $profileImage.Resize "500x500 webp" }}
+                <img src="{{ $profileImageProcessed.RelPermalink }}" alt="Matthijs Smidt - Visu Vista" class="w-full rounded-2xl shadow-2xl" />
+              {{ end }}
+              <!-- Decorative element -->
+              <div class="absolute -bottom-4 -right-4 w-24 h-24 bg-primary/20 rounded-full blur-xl"></div>
+              <div class="absolute -top-4 -left-4 w-16 h-16 bg-primary/30 rounded-full blur-lg"></div>
+            </div>
+          </div>
+
+          <!-- Personal Story -->
+          <div class="order-1 lg:order-2">
+            <div class="bg-white rounded-2xl p-8 shadow-lg">
+              <h2 class="text-h3 mb-6">
+                {{ if eq $lang "es" }}
+                  Hola, soy Matthijs!
+                {{ else if eq $lang "nl" }}
+                  Hoi, ik ben Matthijs!
+                {{ else }}
+                  Hi, I'm Matthijs!
+                {{ end }}
+              </h2>
+              
+              <div class="space-y-4 text-gray-700 leading-relaxed">
+                <p class="text-lg font-medium text-primary">
+                  {{ if eq $lang "es" }}
+                    También conocido como "Tikkie Anders" 🎨
+                  {{ else if eq $lang "nl" }}
+                    Ook wel "Tikkie Anders" genoemd 🎨
+                  {{ else }}
+                    Also known as "Tikkie Anders" 🎨
+                  {{ end }}
+                </p>
+                
+                <p>
+                  {{ if eq $lang "es" }}
+                    Visu Vista es mi pasión hecha realidad. Soy Matthijs Smidt, y mi amor por la creatividad y el arte me impulsa cada día. Mi filosofía es simple: "Diseño todo lo que se mueve y lo que no se mueve".
+                  {{ else if eq $lang "nl" }}
+                    Visu Vista wordt gerund door mij, Matthijs Smidt. Mijn passie voor creativiteit en kunst drijft me elke dag. Mijn filosofie is simpel: "Ik ontwerp alles wat los en vast zit".
+                  {{ else }}
+                    Visu Vista is run by me, Matthijs Smidt. My passion for creativity and art drives me every day. My philosophy is simple: "I design everything that's loose and fixed".
+                  {{ end }}
+                </p>
+                
+                <p>
+                  {{ if eq $lang "es" }}
+                    Con años de experiencia en visualización arquitectónica y un enfoque único que mezcla tecnología avanzada con visión artística, transformo ideas en realidades visuales impresionantes.
+                  {{ else if eq $lang "nl" }}
+                    Met jaren ervaring in architecturale visualisatie en een unieke benadering die geavanceerde technologie combineert met artistieke visie, transformeer ik ideeën naar verbluffende visuele realiteiten.
+                  {{ else }}
+                    With years of experience in architectural visualization and a unique approach that combines advanced technology with artistic vision, I transform ideas into stunning visual realities.
+                  {{ end }}
+                </p>
+                
+                <p class="font-medium text-dark">
+                  {{ if eq $lang "es" }}
+                    ¿Por qué "Tikkie Anders"? Porque hago las cosas de manera diferente - con pasión, creatividad y un toque personal que hace que cada proyecto sea único.
+                  {{ else if eq $lang "nl" }}
+                    Waarom "Tikkie Anders"? Omdat ik de dingen anders aanpak - met passie, creativiteit en een persoonlijke touch die elk project uniek maakt.
+                  {{ else }}
+                    Why "Tikkie Anders"? Because I do things differently - with passion, creativity and a personal touch that makes every project unique.
+                  {{ end }}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- What Drives Me Section -->
+        <div class="bg-gradient-to-r from-primary/5 to-primary/10 rounded-2xl p-8 mb-16">
+          <div class="text-center mb-8">
+            <h2 class="text-h3 mb-4">
+              {{ if eq $lang "es" }}
+                Lo Que Me Impulsa
+              {{ else if eq $lang "nl" }}
+                Wat Mij Drijft
+              {{ else }}
+                What Drives Me
+              {{ end }}
+            </h2>
+          </div>
+          
+          <div class="grid md:grid-cols-3 gap-8">
+            <div class="text-center">
+              <div class="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                <i class="fa-solid fa-palette text-primary text-2xl"></i>
+              </div>
+              <h4 class="text-lg font-semibold mb-2">
+                {{ if eq $lang "es" }}
+                  Creatividad
+                {{ else if eq $lang "nl" }}
+                  Creativiteit
+                {{ else }}
+                  Creativity
+                {{ end }}
+              </h4>
+              <p class="text-sm text-gray-700">
+                {{ if eq $lang "es" }}
+                  Cada proyecto es una nueva oportunidad para crear algo extraordinario y único.
+                {{ else if eq $lang "nl" }}
+                  Elk project is een nieuwe kans om iets buitengewoons en unieks te creëren.
+                {{ else }}
+                  Every project is a new opportunity to create something extraordinary and unique.
+                {{ end }}
+              </p>
+            </div>
+            
+            <div class="text-center">
+              <div class="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                <i class="fa-solid fa-heart text-primary text-2xl"></i>
+              </div>
+              <h4 class="text-lg font-semibold mb-2">
+                {{ if eq $lang "es" }}
+                  Pasión
+                {{ else if eq $lang "nl" }}
+                  Passie
+                {{ else }}
+                  Passion
+                {{ end }}
+              </h4>
+              <p class="text-sm text-gray-700">
+                {{ if eq $lang "es" }}
+                  El amor por el arte y el diseño se refleja en cada detalle de mi trabajo.
+                {{ else if eq $lang "nl" }}
+                  De liefde voor kunst en design is zichtbaar in elk detail van mijn werk.
+                {{ else }}
+                  The love for art and design is visible in every detail of my work.
+                {{ end }}
+              </p>
+            </div>
+            
+            <div class="text-center">
+              <div class="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                <i class="fa-solid fa-lightbulb text-primary text-2xl"></i>
+              </div>
+              <h4 class="text-lg font-semibold mb-2">
+                {{ if eq $lang "es" }}
+                  Innovación
+                {{ else if eq $lang "nl" }}
+                  Innovatie
+                {{ else }}
+                  Innovation
+                {{ end }}
+              </h4>
+              <p class="text-sm text-gray-700">
+                {{ if eq $lang "es" }}
+                  Siempre buscando nuevas formas de fusionar tecnología avanzada con visión artística.
+                {{ else if eq $lang "nl" }}
+                  Altijd op zoek naar nieuwe manieren om geavanceerde technologie te combineren met artistieke visie.
+                {{ else }}
+                  Always looking for new ways to combine advanced technology with artistic vision.
+                {{ end }}
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- My Approach Section -->
+        <div class="bg-white rounded-2xl shadow-lg p-8 mb-16">
+          <h2 class="text-h3 text-center mb-8">
+            {{ if eq $lang "es" }}
+              Mi Enfoque
+            {{ else if eq $lang "nl" }}
+              Mijn Aanpak
+            {{ else }}
+              My Approach
+            {{ end }}
+          </h2>
+          
+          <div class="grid md:grid-cols-2 gap-8">
+            <div>
+              <h4 class="text-lg font-semibold mb-4 text-primary">
+                {{ if eq $lang "es" }}
+                  🎯 Orientado a los Detalles
+                {{ else if eq $lang "nl" }}
+                  🎯 Detailgericht
+                {{ else }}
+                  🎯 Detail-Oriented
+                {{ end }}
+              </h4>
+              <p class="text-gray-700 text-sm leading-relaxed">
+                {{ if eq $lang "es" }}
+                  Cada elemento, desde la iluminación hasta la textura de los materiales, se considera cuidadosamente para crear visualizaciones que se sienten reales y habitables.
+                {{ else if eq $lang "nl" }}
+                  Elk element, van belichting tot materiaal texturen, wordt zorgvuldig overwogen om visualisaties te creëren die echt en leefbaar aanvoelen.
+                {{ else }}
+                  Every element, from lighting to material textures, is carefully considered to create visualizations that feel real and livable.
+                {{ end }}
+              </p>
+            </div>
+            
+            <div>
+              <h4 class="text-lg font-semibold mb-4 text-primary">
+                {{ if eq $lang "es" }}
+                  🤝 Colaborativo
+                {{ else if eq $lang "nl" }}
+                  🤝 Samenwerkend
+                {{ else }}
+                  🤝 Collaborative
+                {{ end }}
+              </h4>
+              <p class="text-gray-700 text-sm leading-relaxed">
+                {{ if eq $lang "es" }}
+                  Trabajo estrechamente contigo en cada paso del proceso, asegurando que tu visión se refleje perfectamente en el resultado final.
+                {{ else if eq $lang "nl" }}
+                  Ik werk nauw samen met jou in elke stap van het proces, zodat jouw visie perfect wordt weerspiegeld in het eindresultaat.
+                {{ else }}
+                  I work closely with you at every step of the process, ensuring your vision is perfectly reflected in the final result.
+                {{ end }}
+              </p>
+            </div>
+            
+            <div>
+              <h4 class="text-lg font-semibold mb-4 text-primary">
+                {{ if eq $lang "es" }}
+                  ⚡ Innovador
+                {{ else if eq $lang "nl" }}
+                  ⚡ Innovatief
+                {{ else }}
+                  ⚡ Innovative
+                {{ end }}
+              </h4>
+              <p class="text-gray-700 text-sm leading-relaxed">
+                {{ if eq $lang "es" }}
+                  Utilizo las últimas tecnologías en escaneo 3D y renderizado para ofrecer resultados que superan las expectativas tradicionales.
+                {{ else if eq $lang "nl" }}
+                  Ik gebruik de nieuwste technologieën in 3D scanning en rendering om resultaten te leveren die traditionele verwachtingen overtreffen.
+                {{ else }}
+                  I use the latest technologies in 3D scanning and rendering to deliver results that exceed traditional expectations.
+                {{ end }}
+              </p>
+            </div>
+            
+            <div>
+              <h4 class="text-lg font-semibold mb-4 text-primary">
+                {{ if eq $lang "es" }}
+                  💎 Calidad Premium
+                {{ else if eq $lang "nl" }}
+                  💎 Premium Kwaliteit
+                {{ else }}
+                  💎 Premium Quality
+                {{ end }}
+              </h4>
+              <p class="text-gray-700 text-sm leading-relaxed">
+                {{ if eq $lang "es" }}
+                  No acepto compromisos cuando se trata de calidad. Cada proyecto recibe mi completa atención y dedicación artística.
+                {{ else if eq $lang "nl" }}
+                  Ik ga geen compromissen aan als het om kwaliteit gaat. Elk project krijgt mijn volledige aandacht en artistieke toewijding.
+                {{ else }}
+                  I don't compromise when it comes to quality. Every project receives my complete attention and artistic dedication.
+                {{ end }}
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Fun Facts Section -->
+        <div class="bg-gradient-to-r from-gray-50 to-gray-100 rounded-2xl p-8">
+          <h2 class="text-h3 text-center mb-8">
+            {{ if eq $lang "es" }}
+              Datos Curiosos
+            {{ else if eq $lang "nl" }}
+              Leuke Weetjes
+            {{ else }}
+              Fun Facts
+            {{ end }}
+          </h2>
+          
+          <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
+            <div class="bg-white rounded-lg p-6">
+              <div class="text-3xl font-bold text-primary mb-2">∞</div>
+              <p class="text-sm font-medium">
+                {{ if eq $lang "es" }}
+                  Ideas Creativas
+                {{ else if eq $lang "nl" }}
+                  Creatieve Ideeën
+                {{ else }}
+                  Creative Ideas
+                {{ end }}
+              </p>
+            </div>
+            
+            <div class="bg-white rounded-lg p-6">
+              <div class="text-3xl font-bold text-primary mb-2">100%</div>
+              <p class="text-sm font-medium">
+                {{ if eq $lang "es" }}
+                  Pasión por el Arte
+                {{ else if eq $lang "nl" }}
+                  Passie voor Kunst
+                {{ else }}
+                  Passion for Art
+                {{ end }}
+              </p>
+            </div>
+            
+            <div class="bg-white rounded-lg p-6">
+              <div class="text-3xl font-bold text-primary mb-2">24/7</div>
+              <p class="text-sm font-medium">
+                {{ if eq $lang "es" }}
+                  Modo Creativo
+                {{ else if eq $lang "nl" }}
+                  Creatieve Modus
+                {{ else }}
+                  Creative Mode
+                {{ end }}
+              </p>
+            </div>
+            
+            <div class="bg-white rounded-lg p-6">
+              <div class="text-3xl font-bold text-primary mb-2">🎨</div>
+              <p class="text-sm font-medium">
+                {{ if eq $lang "es" }}
+                  Tikkie Anders
+                {{ else if eq $lang "nl" }}
+                  Tikkie Anders
+                {{ else }}
+                  Tikkie Anders
+                {{ end }}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}

@@ -1,8 +1,5 @@
 ---
-title: "Acerca de Nosotros"
+title: "Acerca de Visu Vista"
 draft: false
+description: "Conoce a Matthijs Smidt, también conocido como 'Tikkie Anders'. El visionario creativo detrás de Visu Vista con pasión por la creatividad y el arte."
 ---
-
-# Acerca de Visu Vista
-
-Bienvenido a nuestra página Acerca de. Este contenido se actualizará con información sobre nuestra empresa, misión y valores.
