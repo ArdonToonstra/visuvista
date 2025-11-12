@@ -45,11 +45,20 @@
           <!-- Profile Image -->
           <div class="order-2 lg:order-1">
             <div class="relative">
-              {{ $profileImage := resources.Get "images/profiel_mattie.jpg" }}
-              {{ if $profileImage }}
-                {{ $profileImageProcessed := $profileImage.Resize "500x500 webp" }}
-                <img src="{{ $profileImageProcessed.RelPermalink }}" alt="Matthijs Smidt - Visu Vista" class="w-full rounded-2xl shadow-2xl" />
+              <!-- Light mode image -->
+              {{ $profileImageLight := resources.Get "images/profiel_mattie_light.jpg" }}
+              {{ if $profileImageLight }}
+                {{ $profileImageLightProcessed := $profileImageLight.Resize "500x500 webp" }}
+                <img src="{{ $profileImageLightProcessed.RelPermalink }}" alt="Matthijs Smidt - Visu Vista" class="w-full rounded-2xl shadow-2xl dark:hidden" />
               {{ end }}
+              
+              <!-- Dark mode image -->
+              {{ $profileImageDark := resources.Get "images/profiel_mattie_dark.jpg" }}
+              {{ if $profileImageDark }}
+                {{ $profileImageDarkProcessed := $profileImageDark.Resize "500x500 webp" }}
+                <img src="{{ $profileImageDarkProcessed.RelPermalink }}" alt="Matthijs Smidt - Visu Vista" class="w-full rounded-2xl shadow-2xl hidden dark:block" />
+              {{ end }}
+              
               <!-- Decorative element -->
               <div class="absolute -bottom-4 -right-4 w-24 h-24 bg-primary/20 rounded-full blur-xl"></div>
               <div class="absolute -top-4 -left-4 w-16 h-16 bg-primary/30 rounded-full blur-lg"></div>
