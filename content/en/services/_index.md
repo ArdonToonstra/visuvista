@@ -76,21 +76,27 @@ process:
     - number: 1
       title: "Phase 1: 3D Scanning (Current State)"
       description: "We start on-site to measure the entire property and garden with 3D scanners, resulting in a 'Point Cloud' - an extremely accurate digital copy of the current state."
+      icon: "fa-solid fa-location-dot"
     - number: 2
       title: "Phase 2: 3D Modeling (Existing 'As-Is')"
       description: "The Point Cloud is processed into an accurate 3D 'As-Is' model. This model serves as the foundation for the new design and prevents misunderstandings due to measurement errors."
+      icon: "fa-solid fa-cube"
     - number: 3
       title: "Phase 3: 3D Modeling (New 'To-Be')"
       description: "Based on the 'As-Is' model, the new situation is designed. All specifications are processed: walls digitally removed, extensions modeled, new stairs and complete garden and pool design."
+      icon: "fa-solid fa-drafting-compass"
     - number: 4
       title: "Phase 4: Preliminary Presentation"
       description: "On-site review moment: we walk through the 3D model together to check that all changes have been implemented correctly before final rendering."
+      icon: "fa-solid fa-comments"
     - number: 5
       title: "Phase 5: Visualization, Atmosphere & Lighting"
       description: "When the 'To-Be' model is ready, final materials, global lighting and extra atmosphere are added for photorealistic visualizations."
+      icon: "fa-solid fa-palette"
     - number: 6
       title: "Phase 6: Final Presentation"
       description: "Final feedback round on-site for details and material choices, followed by definitive delivery with high-quality photorealistic renders."
+      icon: "fa-solid fa-image"
 
 # Deliverables
 deliverables:

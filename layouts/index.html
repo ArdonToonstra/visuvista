@@ -22,10 +22,10 @@
       <div class="relative z-10 container px-4 text-center text-white py-32">
         <div class="row justify-center">
           <div class="lg:col-8">
-            <h1 class="mb-8 text-5xl lg:text-7xl font-bold drop-shadow-lg leading-tight">
+            <h1 class="mb-8 text-5xl lg:text-7xl font-bold drop-shadow-lg leading-tight text-white">
               {{ .title | markdownify }}
             </h1>
-            <p class="mb-12 text-xl lg:text-2xl opacity-95 drop-shadow-md leading-relaxed">
+            <p class="mb-12 text-xl lg:text-2xl drop-shadow-md leading-relaxed text-white">
               {{ .content | markdownify }}
             </p>
             {{ with .button }}
@@ -307,16 +307,31 @@
               {{ range $index, $step := .Params.process.steps }}
               <!-- Step {{ add $index 1 }} -->
               <div class="relative flex items-center md:justify-center">
-                <div class="flex items-center w-full {{ if modBool $index 2 }}md:w-1/2 md:pl-8{{ else }}md:w-1/2 md:pr-8{{ end }}">
+                {{ if modBool $index 2 }}
+                <!-- Left side: content, right side: empty -->
+                <div class="flex items-center w-full md:w-1/2 md:pr-8">
                   <div class="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-primary to-primary/80 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg z-10 relative">
-                    <i class="{{ $step.icon }} text-xl"></i>
+                    <i class="{{ $step.icon }} text-xl text-white" style="color: #fff !important;"></i>
                   </div>
-                  <div class="ml-6 {{ if modBool $index 2 }}flex-grow{{ else }}md:ml-0 md:text-right flex-grow{{ end }}">
+                  <div class="ml-6 flex-grow">
                     <h4 class="text-h5 mb-2 font-semibold">{{ $step.title }}</h4>
                     <p class="text-sm opacity-80 leading-relaxed">{{ $step.description }}</p>
                   </div>
                 </div>
-                {{ if modBool $index 2 }}<div class="hidden md:block w-1/2"></div>{{ else }}<div class="hidden md:block w-1/2"></div>{{ end }}
+                <div class="hidden md:block w-1/2"></div>
+                {{ else }}
+                <!-- Right side: empty, left side: content -->
+                <div class="hidden md:block w-1/2"></div>
+                <div class="flex items-center w-full md:w-1/2 md:pl-8">
+                  <div class="ml-6 flex-grow md:text-right md:mr-6 md:ml-0">
+                    <h4 class="text-h5 mb-2 font-semibold">{{ $step.title }}</h4>
+                    <p class="text-sm opacity-80 leading-relaxed">{{ $step.description }}</p>
+                  </div>
+                  <div class="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-primary to-primary/80 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg z-10 relative">
+                    <i class="{{ $step.icon }} text-xl text-white" style="color: #fff !important;"></i>
+                  </div>
+                </div>
+                {{ end }}
               </div>
               {{ end }}
             </div>

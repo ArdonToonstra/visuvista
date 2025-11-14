@@ -76,21 +76,27 @@ process:
     - number: 1
       title: "Fase 1: Escaneo 3D (Situación Actual)"
       description: "Escaneamos in situ toda la propiedad y jardín con escáneres 3D de alta precisión, creando una 'nube de puntos' - una copia digital exacta del estado actual."
+      icon: "fa-solid fa-location-dot"
     - number: 2
       title: "Fase 2: Modelado 3D (Estado 'As-Is')"
       description: "La nube de puntos se procesa en un modelo 3D 'As-Is' preciso, que sirve como base para el nuevo diseño y previene malentendidos por errores de medición."
+      icon: "fa-solid fa-cube"
     - number: 3
       title: "Fase 3: Modelado 3D (Nuevo 'To-Be')"
       description: "Basándose en el modelo 'As-Is', diseñamos la nueva situación. Se procesan todas las especificaciones: muros digitalmente removidos, extensiones modeladas, escaleras nuevas y diseño completo de jardín."
+      icon: "fa-solid fa-drafting-compass"
     - number: 4
       title: "Fase 4: Presentación Preliminar"
       description: "Momento de revisión in situ: recorremos juntos el modelo 3D para verificar que todos los cambios se hayan implementado correctamente antes de la renderización final."
+      icon: "fa-solid fa-comments"
     - number: 5
       title: "Fase 5: Visualización, Ambiente y Luz"
       description: "Con el modelo 'To-Be' listo, añadimos materiales finales, iluminación global y ambiente extra para crear visualizaciones fotorrealistas."
+      icon: "fa-solid fa-palette"
     - number: 6
       title: "Fase 6: Presentación Final"
       description: "Ronda final de feedback presencial sobre detalles y elección de materiales, seguida de la entrega definitiva con renders fotorrealistas de alta calidad."
+      icon: "fa-solid fa-image"
 
 # Deliverables
 deliverables:

@@ -76,21 +76,27 @@ process:
     - number: 1
       title: "Fase 1: 3D Scanning (Huidige Situatie)"
       description: "We beginnen op locatie om de gehele woning en tuin in te meten met 3D scanners, wat resulteert in een 'Point Cloud' - een extreem nauwkeurige digitale kopie van de huidige staat."
+      icon: "fa-solid fa-location-dot"
     - number: 2
       title: "Fase 2: 3D Modellering (Bestaand 'As-Is')"
       description: "De Point Cloud wordt verwerkt tot een nauwkeurig 3D 'As-Is'-model. Dit model dient als basis voor het nieuwe ontwerp en voorkomt misverstanden door meetfouten."
+      icon: "fa-solid fa-cube"
     - number: 3
       title: "Fase 3: 3D Modellering (Nieuw 'To-Be')"
       description: "Op basis van het 'As-Is'-model wordt de nieuwe situatie ontworpen. Alle specificaties worden verwerkt: muren digitaal verwijderd, uitbouw gemodelleerd, nieuwe trappen en compleet tuin- en zwembadontwerp."
+      icon: "fa-solid fa-drafting-compass"
     - number: 4
       title: "Fase 4: Voorlopige Presentatie"
       description: "Revisie moment op locatie: we lopen samen door het 3D model om te controleren of alle wijzigingen correct zijn doorgevoerd voordat we definitief gaan renderen."
+      icon: "fa-solid fa-comments"
     - number: 5
       title: "Fase 5: Visualisatie, Sfeer & Licht"
       description: "Wanneer het 'To-Be'-model gereed is, worden de uiteindelijke materialen, globale verlichting en extra sfeer toegevoegd voor fotorealistische visualisaties."
+      icon: "fa-solid fa-palette"
     - number: 6
       title: "Fase 6: Eindpresentatie"
       description: "Laatste feedbackronde op locatie voor details en materiaalkeuzes, gevolgd door definitieve oplevering met hoogwaardige fotorealistische renders."
+      icon: "fa-solid fa-image"
 
 # Deliverables
 deliverables:
