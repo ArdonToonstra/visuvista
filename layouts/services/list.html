@@ -15,18 +15,6 @@
     {{ $services := .Params.services }}
     {{ with $services }}
       <div class="relative mb-12">
-        <!-- Instruction Text -->
-        <div class="text-center mb-6">
-          <p class="text-sm text-gray-600">
-            {{ if eq $lang "es" }}
-              Desliza para ver todos los servicios
-            {{ else if eq $lang "nl" }}
-              Schuif om alle diensten te zien
-            {{ else }}
-              Slide to view all services
-            {{ end }}
-          </p>
-        </div>
 
         <!-- Carousel Container -->
         <div class="overflow-hidden">
@@ -208,8 +196,8 @@
             <div class="space-y-8">
               <!-- Phase 1 -->
               <div class="flex items-start">
-                <div class="flex-shrink-0 w-16 h-16 bg-primary rounded-full flex items-center justify-center text-white font-bold text-lg mr-6">
-                  <i class="fa-solid fa-radar"></i>
+                <div class="flex-shrink-0 w-16 h-16 bg-primary rounded-full flex items-center justify-center text-white font-bold text-lg mr-6 relative z-10">
+                  <i class="fa-solid fa-location-dot"></i>
                 </div>
                 <div class="flex-grow bg-white rounded-lg p-6 shadow-md">
                   <h4 class="text-lg font-semibold mb-2">

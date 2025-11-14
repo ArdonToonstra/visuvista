@@ -1,1 +1,150 @@
-/* Add your own custom styles here */
+/* Process timeline circles - darker background in dark mode */
+.bg-gradient-to-br.from-primary.to-primary\/80.rounded-full {
+  @apply dark:bg-black dark:from-black dark:to-black;
+}
+
+.bg-gradient-to-br.from-primary.to-primary\/80.rounded-full i {
+  @apply dark:text-white;
+}
+
+/* Service cards */
+.service-card {
+  @apply dark:bg-darkmode-light dark:border-darkmode-border dark:text-darkmode-text;
+}
+
+.service-card h3 {
+  @apply dark:text-darkmode-text-dark;
+}
+
+.service-card .text-gray-600 {
+  @apply dark:text-darkmode-text;
+}
+
+.service-card .text-gray-700 {
+  @apply dark:text-darkmode-text;
+}
+
+.service-card i {
+  @apply dark:text-darkmode-primary;
+}
+
+.service-card .bg-primary\/10 {
+  @apply dark:bg-darkmode-primary/10;
+}
+
+/* Carousel dots */
+.carousel-dot {
+  @apply dark:bg-darkmode-border;
+}
+
+.carousel-dot.bg-primary {
+  @apply dark:bg-darkmode-primary;
+}
+
+.carousel-dot.bg-gray-300 {
+  @apply dark:bg-gray-600;
+}
+
+/* Navigation buttons */
+.carousel-nav-btn {
+  @apply dark:bg-darkmode-primary dark:hover:bg-darkmode-primary/80 dark:text-white;
+}
+
+.carousel-nav-btn i {
+  @apply dark:text-white;
+}
+
+/* Process section gradient background */
+.bg-gradient-to-r.from-primary\/5 {
+  @apply dark:from-darkmode-primary/10 dark:to-darkmode-primary/5 dark:bg-darkmode-body;
+}
+
+/* Process timeline cards */
+.flex-grow.bg-white.rounded-lg {
+  @apply dark:bg-darkmode-light;
+}
+
+.flex-grow.bg-white h4 {
+  @apply dark:text-darkmode-text-dark;
+}
+
+.flex-grow.bg-white .text-gray-700 {
+  @apply dark:text-darkmode-text;
+}
+
+/* Timeline circle icons - override text color in dark mode */
+.flex-shrink-0.w-16.h-16.bg-primary.rounded-full {
+  @apply dark:bg-black relative z-10;
+}
+
+.flex-shrink-0.w-16.h-16.bg-primary.rounded-full.text-white {
+  @apply dark:text-white;
+}
+
+.flex-shrink-0.w-16.h-16.bg-primary.rounded-full.text-white i {
+  @apply dark:text-white;
+}
+
+/* Force dark mode text on all icons inside these circles */
+.text-white.font-bold i {
+  @apply dark:text-white;
+}
+
+/* Absolute timeline line */
+.absolute.left-8.top-0.bottom-0 {
+  @apply dark:bg-darkmode-primary/30;
+}
+
+/* Deliverables section */
+.deliverable-item {
+  @apply dark:bg-darkmode-light dark:border-darkmode-border;
+}
+
+.deliverable-item h4 {
+  @apply dark:text-darkmode-text-dark;
+}
+
+.deliverable-item .text-gray-700 {
+  @apply dark:text-darkmode-text;
+}
+
+.deliverable-item .w-12.h-12 {
+  @apply dark:bg-darkmode-primary/10;
+}
+
+.deliverable-item i {
+  @apply dark:text-darkmode-primary;
+}
+
+/* Deliverables background section - much darker in dark mode */
+.bg-white.rounded-2xl.shadow-lg {
+  @apply dark:bg-darkmode-body dark:border dark:border-darkmode-border;
+}
+
+.bg-gray-50 strong {
+  @apply dark:text-darkmode-text-dark;
+}
+
+.bg-gray-50 .text-gray-700 {
+  @apply dark:text-darkmode-text;
+}
+
+/* Deliverables timeline section background */
+.mt-8.p-6.bg-gray-50.rounded-lg {
+  @apply dark:bg-darkmode-light dark:border dark:border-darkmode-border;
+}
+
+/* Call to action section */
+.bg-gradient.p-8 {
+  @apply dark:text-darkmode-text;
+}
+
+.bg-gradient h3 {
+  @apply dark:text-darkmode-text-dark;
+}
+
+/* Instruction text */
+.text-sm.text-gray-600 {
+  @apply dark:text-darkmode-text;
+}
+
