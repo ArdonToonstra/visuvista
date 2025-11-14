@@ -15,18 +15,6 @@
     {{ $services := .Params.services }}
     {{ with $services }}
       <div class="relative mb-12">
-        <!-- Instruction Text -->
-        <div class="text-center mb-6">
-          <p class="text-sm text-gray-600">
-            {{ if eq $lang "es" }}
-              Desliza para ver todos los servicios
-            {{ else if eq $lang "nl" }}
-              Schuif om alle diensten te zien
-            {{ else }}
-              Slide to view all services
-            {{ end }}
-          </p>
-        </div>
 
         <!-- Carousel Container -->
         <div class="overflow-hidden">
