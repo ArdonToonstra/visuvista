@@ -56,25 +56,8 @@
     <div class="container">
       <div class="row justify-center">
         <div class="lg:col-8 text-center">
-          <h2 class="mb-4 text-h2">
-            {{ if eq .Site.Language.Lang "es" }}
-              Nuestros Servicios
-            {{ else if eq .Site.Language.Lang "nl" }}
-              Onze Diensten
-            {{ else }}
-              Our Services
-            {{ end }}
-          </h2>
-          
-          <p class="mb-12 text-lg">
-            {{ if eq .Site.Language.Lang "es" }}
-              Utilizamos tecnología de vanguardia para transformar espacios y crear experiencias visuales extraordinarias.
-            {{ else if eq .Site.Language.Lang "nl" }}
-              Wij gebruiken geavanceerde technologie om ruimtes te transformeren en buitengewone visuele ervaringen te creëren.
-            {{ else }}
-              We use cutting-edge technology to transform spaces and create extraordinary visual experiences.
-            {{ end }}
-          </p>
+          <h2 class="mb-4 text-h2">{{ .Params.services_title }}</h2>
+          <p class="mb-12 text-lg">{{ .Params.services_description }}</p>
         </div>
       </div>
       <div class="row gy-4">
@@ -309,24 +292,8 @@
     <div class="container">
       <div class="row justify-center">
         <div class="lg:col-8 text-center">
-          <h2 class="mb-4 text-h2">
-            {{ if eq .Site.Language.Lang "es" }}
-              Nuestro Proceso
-            {{ else if eq .Site.Language.Lang "nl" }}
-              Ons Proces
-            {{ else }}
-              Our Process
-            {{ end }}
-          </h2>
-          <p class="mb-16 text-lg opacity-80">
-            {{ if eq .Site.Language.Lang "es" }}
-              De escaneo a visualización en 6 pasos claros
-            {{ else if eq .Site.Language.Lang "nl" }}
-              Van scan tot visualisatie in 6 duidelijke stappen
-            {{ else }}
-              From scan to visualization in 6 clear steps
-            {{ end }}
-          </p>
+          <h2 class="mb-4 text-h2">{{ .Params.process.title }}</h2>
+          <p class="mb-16 text-lg opacity-80">{{ .Params.process.description }}</p>
         </div>
       </div>
 
@@ -339,187 +306,21 @@
             
             <!-- Process Steps -->
             <div class="space-y-12">
-              <!-- Step 1: 3D Scanning -->
+              {{ range $index, $step := .Params.process.steps }}
+              <!-- Step {{ add $index 1 }} -->
               <div class="relative flex items-center md:justify-center">
-                <div class="flex items-center w-full md:w-1/2 md:pr-8">
+                <div class="flex items-center w-full {{ if odd $index }}md:w-1/2 md:pl-8{{ else }}md:w-1/2 md:pr-8{{ end }}">
                   <div class="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-primary to-primary/80 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg z-10 relative">
-                    <i class="fa-solid fa-location-dot text-xl"></i>
+                    <i class="{{ $step.icon }} text-xl"></i>
                   </div>
-                  <div class="ml-6 md:ml-0 md:text-right flex-grow">
-                    <h4 class="text-h5 mb-2 font-semibold">
-                      {{ if eq .Site.Language.Lang "es" }}
-                        Escaneo 3D
-                      {{ else if eq .Site.Language.Lang "nl" }}
-                        3D Scanning
-                      {{ else }}
-                        3D Scanning
-                      {{ end }}
-                    </h4>
-                    <p class="text-sm opacity-80 leading-relaxed">
-                      {{ if eq .Site.Language.Lang "es" }}
-                        Escaneamos su propiedad con precisión milimétrica
-                      {{ else if eq .Site.Language.Lang "nl" }}
-                        Millimeter-precisie scanning van uw pand
-                      {{ else }}
-                        Millimeter-precision scanning of your property
-                      {{ end }}
-                    </p>
+                  <div class="ml-6 {{ if odd $index }}flex-grow{{ else }}md:ml-0 md:text-right flex-grow{{ end }}">
+                    <h4 class="text-h5 mb-2 font-semibold">{{ $step.title }}</h4>
+                    <p class="text-sm opacity-80 leading-relaxed">{{ $step.description }}</p>
                   </div>
                 </div>
-                <!-- Desktop right side placeholder -->
-                <div class="hidden md:block w-1/2"></div>
+                {{ if odd $index }}<div class="hidden md:block w-1/2"></div>{{ else }}<div class="hidden md:block w-1/2"></div>{{ end }}
               </div>
-
-              <!-- Step 2: As-Is Model -->
-              <div class="relative flex items-center md:justify-center">
-                <!-- Desktop left side placeholder -->
-                <div class="hidden md:block w-1/2"></div>
-                <div class="flex items-center w-full md:w-1/2 md:pl-8">
-                  <div class="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-primary to-primary/80 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg z-10 relative">
-                    <i class="fa-solid fa-cube text-xl"></i>
-                  </div>
-                  <div class="ml-6 flex-grow">
-                    <h4 class="text-h5 mb-2 font-semibold">
-                      {{ if eq .Site.Language.Lang "es" }}
-                        Modelo Actual
-                      {{ else if eq .Site.Language.Lang "nl" }}
-                        Huidige Situatie
-                      {{ else }}
-                        Current State Model
-                      {{ end }}
-                    </h4>
-                    <p class="text-sm opacity-80 leading-relaxed">
-                      {{ if eq .Site.Language.Lang "es" }}
-                        Procesamos datos en modelo 3D preciso
-                      {{ else if eq .Site.Language.Lang "nl" }}
-                        Verwerking tot nauwkeurig 3D 'As-Is' model
-                      {{ else }}
-                        Processing into accurate 3D 'As-Is' model
-                      {{ end }}
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Step 3: New Design -->
-              <div class="relative flex items-center md:justify-center">
-                <div class="flex items-center w-full md:w-1/2 md:pr-8">
-                  <div class="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-primary to-primary/80 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg z-10 relative">
-                    <i class="fa-solid fa-drafting-compass text-xl"></i>
-                  </div>
-                  <div class="ml-6 md:ml-0 md:text-right flex-grow">
-                    <h4 class="text-h5 mb-2 font-semibold">
-                      {{ if eq .Site.Language.Lang "es" }}
-                        Nuevo Diseño
-                      {{ else if eq .Site.Language.Lang "nl" }}
-                        Nieuw Ontwerp
-                      {{ else }}
-                        New Design
-                      {{ end }}
-                    </h4>
-                    <p class="text-sm opacity-80 leading-relaxed">
-                      {{ if eq .Site.Language.Lang "es" }}
-                        Creamos su visión futura basada en requisitos
-                      {{ else if eq .Site.Language.Lang "nl" }}
-                        Ontwerpen van uw toekomstvisie
-                      {{ else }}
-                        Designing your future vision
-                      {{ end }}
-                    </p>
-                  </div>
-                </div>
-                <div class="hidden md:block w-1/2"></div>
-              </div>
-
-              <!-- Step 4: Review -->
-              <div class="relative flex items-center md:justify-center">
-                <div class="hidden md:block w-1/2"></div>
-                <div class="flex items-center w-full md:w-1/2 md:pl-8">
-                  <div class="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-primary to-primary/80 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg z-10 relative">
-                    <i class="fa-solid fa-comments text-xl"></i>
-                  </div>
-                  <div class="ml-6 flex-grow">
-                    <h4 class="text-h5 mb-2 font-semibold">
-                      {{ if eq .Site.Language.Lang "es" }}
-                        Revisión
-                      {{ else if eq .Site.Language.Lang "nl" }}
-                        Beoordeling
-                      {{ else }}
-                        Review
-                      {{ end }}
-                    </h4>
-                    <p class="text-sm opacity-80 leading-relaxed">
-                      {{ if eq .Site.Language.Lang "es" }}
-                        Revisión colaborativa y ajustes
-                      {{ else if eq .Site.Language.Lang "nl" }}
-                        Gezamenlijke beoordeling en aanpassingen
-                      {{ else }}
-                        Collaborative review and adjustments
-                      {{ end }}
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Step 5: Styling -->
-              <div class="relative flex items-center md:justify-center">
-                <div class="flex items-center w-full md:w-1/2 md:pr-8">
-                  <div class="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-primary to-primary/80 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg z-10 relative">
-                    <i class="fa-solid fa-palette text-xl"></i>
-                  </div>
-                  <div class="ml-6 md:ml-0 md:text-right flex-grow">
-                    <h4 class="text-h5 mb-2 font-semibold">
-                      {{ if eq .Site.Language.Lang "es" }}
-                        Materiales & Luz
-                      {{ else if eq .Site.Language.Lang "nl" }}
-                        Materialen & Licht
-                      {{ else }}
-                        Materials & Lighting
-                      {{ end }}
-                    </h4>
-                    <p class="text-sm opacity-80 leading-relaxed">
-                      {{ if eq .Site.Language.Lang "es" }}
-                        Materiales realistas y configuración de iluminación
-                      {{ else if eq .Site.Language.Lang "nl" }}
-                        Realistische materialen en lichtinstellingen
-                      {{ else }}
-                        Realistic materials and lighting setup
-                      {{ end }}
-                    </p>
-                  </div>
-                </div>
-                <div class="hidden md:block w-1/2"></div>
-              </div>
-
-              <!-- Step 6: Final Delivery -->
-              <div class="relative flex items-center md:justify-center">
-                <div class="hidden md:block w-1/2"></div>
-                <div class="flex items-center w-full md:w-1/2 md:pl-8">
-                  <div class="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-primary to-primary/80 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg z-10 relative">
-                    <i class="fa-solid fa-image text-xl"></i>
-                  </div>
-                  <div class="ml-6 flex-grow">
-                    <h4 class="text-h5 mb-2 font-semibold">
-                      {{ if eq .Site.Language.Lang "es" }}
-                        Entrega Final
-                      {{ else if eq .Site.Language.Lang "nl" }}
-                        Eindoplevering
-                      {{ else }}
-                        Final Delivery
-                      {{ end }}
-                    </h4>
-                    <p class="text-sm opacity-80 leading-relaxed">
-                      {{ if eq .Site.Language.Lang "es" }}
-                        Renders fotorrealistas y tours VR
-                      {{ else if eq .Site.Language.Lang "nl" }}
-                        Fotorealistische renders en VR-tours
-                      {{ else }}
-                        Photorealistic renders and VR tours
-                      {{ end }}
-                    </p>
-                  </div>
-                </div>
-              </div>
+              {{ end }}
             </div>
           </div>
         </div>

@@ -3,6 +3,9 @@ title: "Onze Diensten"
 draft: false
 description: "Uitgebreide visualisatie en ontwerpservices met behulp van geavanceerde technologie. Wij opereren in Spanje, tussen Alicante en Valencia."
 
+# Services Showcase
+services_description: "Uitgebreide visualisatie en ontwerpservices met behulp van geavanceerde technologie"
+
 # Services sections
 services:
   - title: "LiDAR Scanning"
@@ -64,5 +67,66 @@ services:
       - "Voor/Tijdens/Na Vergelijkingen"
       - "Compliance Rapportage"
     details: "Houd uw bouwproject op koers met onze uitgebreide documentatieservices. Regelmatige 3D-scans bieden nauwkeurige voortgangsrapporten en helpen potentiële problemen vroeg te identificeren."
+
+# Our Work Process
+process:
+  title: "Ons Werkproces"
+  description: "Van scanning tot visualisatie: 6 fasen voor perfecte resultaten"
+  phases:
+    - number: 1
+      title: "Fase 1: 3D Scanning (Huidige Situatie)"
+      description: "We beginnen op locatie om de gehele woning en tuin in te meten met 3D scanners, wat resulteert in een 'Point Cloud' - een extreem nauwkeurige digitale kopie van de huidige staat."
+    - number: 2
+      title: "Fase 2: 3D Modellering (Bestaand 'As-Is')"
+      description: "De Point Cloud wordt verwerkt tot een nauwkeurig 3D 'As-Is'-model. Dit model dient als basis voor het nieuwe ontwerp en voorkomt misverstanden door meetfouten."
+    - number: 3
+      title: "Fase 3: 3D Modellering (Nieuw 'To-Be')"
+      description: "Op basis van het 'As-Is'-model wordt de nieuwe situatie ontworpen. Alle specificaties worden verwerkt: muren digitaal verwijderd, uitbouw gemodelleerd, nieuwe trappen en compleet tuin- en zwembadontwerp."
+    - number: 4
+      title: "Fase 4: Voorlopige Presentatie"
+      description: "Revisie moment op locatie: we lopen samen door het 3D model om te controleren of alle wijzigingen correct zijn doorgevoerd voordat we definitief gaan renderen."
+    - number: 5
+      title: "Fase 5: Visualisatie, Sfeer & Licht"
+      description: "Wanneer het 'To-Be'-model gereed is, worden de uiteindelijke materialen, globale verlichting en extra sfeer toegevoegd voor fotorealistische visualisaties."
+    - number: 6
+      title: "Fase 6: Eindpresentatie"
+      description: "Laatste feedbackronde op locatie voor details en materiaalkeuzes, gevolgd door definitieve oplevering met hoogwaardige fotorealistische renders."
+
+# Deliverables
+deliverables:
+  title: "Te Leveren Resultaten"
+  description: "Compleet digitaal pakket voor uw project"
+  items:
+    - title: "2D Plattegronden"
+      icon: "fa-solid fa-map"
+      description: "Schaalvaste plattegronden van de nieuwe situatie van alle verdiepingen en tuin. Essentieel voor communicatie met aannemers en gemeente."
+    - title: "Interactief 3D-model"
+      icon: "fa-solid fa-cube"
+      description: "Volledige 3D-model dat je zelf kunt bekijken op computer of tablet. Bevat alle maatvoering maar nog zonder uiteindelijke materialen."
+    - title: "Interieur Renders (12 beelden)"
+      icon: "fa-solid fa-home"
+      description: "12 hoge resolutie (4K) fotorealistische visualisaties van de belangrijkste binnenruimtes: keuken/woonkamer, badkamer, trap, speciale kamers."
+    - title: "Exterieur Renders (8 beelden)"
+      icon: "fa-solid fa-tree"
+      description: "8 visuele afbeeldingen met hoge resolutie (4K) met alle exterieur details, tuin en architectonische elementen."
+    - title: "3D Video Walkthrough"
+      icon: "fa-solid fa-video"
+      description: "Video-animatie van 90-120 seconden die een complete rondgang door het gerenoveerde pand toont."
+    - title: "360° Virtuele Tour"
+      icon: "fa-solid fa-vr-cardboard"
+      description: "Interactieve 360° virtuele tour waarin je in alle rust door het huis kunt navigeren om de details goed te bekijken."
+
+# Project Timeline
+project_timeline:
+  duration: "5-6 weken (bij tijdige feedback)"
+  payment: "40% bij aanvang, 60% bij oplevering"
+  revisions: "2 ronden inbegrepen (€60/u extra)"
+
+# Call to Action
+cta:
+  title: "Klaar om Uw Ruimte te Transformeren?"
+  description: "Neem vandaag contact met ons op voor een gratis consultatie en ontdek hoe wij uw visie werkelijkheid kunnen maken."
+  button_label: "Gratis Consultatie Krijgen"
+  button_link: "/contact"
 ---
 

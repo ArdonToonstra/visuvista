@@ -169,24 +169,8 @@
       <div class="lg:col-10">
         <div class="bg-gradient-to-r from-primary/5 to-primary/10 rounded-2xl p-8 mb-12">
           <div class="text-center mb-8">
-            <h2 class="text-h3 mb-4">
-              {{ if eq $lang "es" }}
-                Nuestro Proceso de Trabajo
-              {{ else if eq $lang "nl" }}
-                Ons Werkproces
-              {{ else }}
-                Our Work Process
-              {{ end }}
-            </h2>
-            <p class="text-lg opacity-90">
-              {{ if eq $lang "es" }}
-                De escaneo a visualización: 6 fases para resultados perfectos
-              {{ else if eq $lang "nl" }}
-                Van scan tot visualisatie: 6 fasen voor perfecte resultaten
-              {{ else }}
-                From scan to visualization: 6 phases for perfect results
-              {{ end }}
-            </p>
+            <h2 class="text-h3 mb-4">{{ .Params.process.title }}</h2>
+            <p class="text-lg opacity-90">{{ .Params.process.description }}</p>
           </div>
 
           <!-- Process Timeline -->
@@ -194,167 +178,18 @@
             <div class="absolute left-8 top-0 bottom-0 w-0.5 bg-primary/30 hidden md:block"></div>
             
             <div class="space-y-8">
-              <!-- Phase 1 -->
+              {{ range $index, $phase := .Params.process.phases }}
+              <!-- Phase {{ add $index 1 }} -->
               <div class="flex items-start">
                 <div class="flex-shrink-0 w-16 h-16 bg-primary rounded-full flex items-center justify-center text-white font-bold text-lg mr-6 relative z-10">
-                  <i class="fa-solid fa-location-dot"></i>
+                  <i class="{{ $phase.icon }}"></i>
                 </div>
                 <div class="flex-grow bg-white rounded-lg p-6 shadow-md">
-                  <h4 class="text-lg font-semibold mb-2">
-                    {{ if eq $lang "es" }}
-                      Fase 1: Escaneo 3D (Situación Actual)
-                    {{ else if eq $lang "nl" }}
-                      Fase 1: 3D Scanning (Huidige Situatie)
-                    {{ else }}
-                      Phase 1: 3D Scanning (Current State)
-                    {{ end }}
-                  </h4>
-                  <p class="text-gray-700 text-sm leading-relaxed">
-                    {{ if eq $lang "es" }}
-                      Escaneamos in situ toda la propiedad y jardín con escáneres 3D de alta precisión, creando una 'nube de puntos' - una copia digital exacta del estado actual.
-                    {{ else if eq $lang "nl" }}
-                      We beginnen op locatie om de gehele woning en tuin in te meten met 3D scanners, wat resulteert in een 'Point Cloud' - een extreem nauwkeurige digitale kopie van de huidige staat.
-                    {{ else }}
-                      We start on-site to measure the entire property and garden with 3D scanners, resulting in a 'Point Cloud' - an extremely accurate digital copy of the current state.
-                    {{ end }}
-                  </p>
+                  <h4 class="text-lg font-semibold mb-2">{{ $phase.title }}</h4>
+                  <p class="text-gray-700 text-sm leading-relaxed">{{ $phase.description }}</p>
                 </div>
               </div>
-
-              <!-- Phase 2 -->
-              <div class="flex items-start">
-                <div class="flex-shrink-0 w-16 h-16 bg-primary rounded-full flex items-center justify-center text-white font-bold text-lg mr-6">
-                  <i class="fa-solid fa-cube"></i>
-                </div>
-                <div class="flex-grow bg-white rounded-lg p-6 shadow-md">
-                  <h4 class="text-lg font-semibold mb-2">
-                    {{ if eq $lang "es" }}
-                      Fase 2: Modelado 3D (Estado 'As-Is')
-                    {{ else if eq $lang "nl" }}
-                      Fase 2: 3D Modellering (Bestaand 'As-Is')
-                    {{ else }}
-                      Phase 2: 3D Modeling (Existing 'As-Is')
-                    {{ end }}
-                  </h4>
-                  <p class="text-gray-700 text-sm leading-relaxed">
-                    {{ if eq $lang "es" }}
-                      La nube de puntos se procesa en un modelo 3D 'As-Is' preciso, que sirve como base para el nuevo diseño y previene malentendidos por errores de medición.
-                    {{ else if eq $lang "nl" }}
-                      De Point Cloud wordt verwerkt tot een nauwkeurig 3D 'As-Is'-model. Dit model dient als basis voor het nieuwe ontwerp en voorkomt misverstanden door meetfouten.
-                    {{ else }}
-                      The Point Cloud is processed into an accurate 3D 'As-Is' model. This model serves as the foundation for the new design and prevents misunderstandings due to measurement errors.
-                    {{ end }}
-                  </p>
-                </div>
-              </div>
-
-              <!-- Phase 3 -->
-              <div class="flex items-start">
-                <div class="flex-shrink-0 w-16 h-16 bg-primary rounded-full flex items-center justify-center text-white font-bold text-lg mr-6">
-                  <i class="fa-solid fa-drafting-compass"></i>
-                </div>
-                <div class="flex-grow bg-white rounded-lg p-6 shadow-md">
-                  <h4 class="text-lg font-semibold mb-2">
-                    {{ if eq $lang "es" }}
-                      Fase 3: Modelado 3D (Nuevo 'To-Be')
-                    {{ else if eq $lang "nl" }}
-                      Fase 3: 3D Modellering (Nieuw 'To-Be')
-                    {{ else }}
-                      Phase 3: 3D Modeling (New 'To-Be')
-                    {{ end }}
-                  </h4>
-                  <p class="text-gray-700 text-sm leading-relaxed">
-                    {{ if eq $lang "es" }}
-                      Basándose en el modelo 'As-Is', diseñamos la nueva situación. Se procesan todas las especificaciones: muros digitalmente removidos, extensiones modeladas, escaleras nuevas y diseño completo de jardín.
-                    {{ else if eq $lang "nl" }}
-                      Op basis van het 'As-Is'-model wordt de nieuwe situatie ontworpen. Alle specificaties worden verwerkt: muren digitaal verwijderd, uitbouw gemodelleerd, nieuwe trappen en compleet tuin- en zwembadontwerp.
-                    {{ else }}
-                      Based on the 'As-Is' model, the new situation is designed. All specifications are processed: walls digitally removed, extensions modeled, new stairs and complete garden and pool design.
-                    {{ end }}
-                  </p>
-                </div>
-              </div>
-
-              <!-- Phase 4 -->
-              <div class="flex items-start">
-                <div class="flex-shrink-0 w-16 h-16 bg-primary rounded-full flex items-center justify-center text-white font-bold text-lg mr-6">
-                  <i class="fa-solid fa-comments"></i>
-                </div>
-                <div class="flex-grow bg-white rounded-lg p-6 shadow-md">
-                  <h4 class="text-lg font-semibold mb-2">
-                    {{ if eq $lang "es" }}
-                      Fase 4: Presentación Preliminar
-                    {{ else if eq $lang "nl" }}
-                      Fase 4: Voorlopige Presentatie
-                    {{ else }}
-                      Phase 4: Preliminary Presentation
-                    {{ end }}
-                  </h4>
-                  <p class="text-gray-700 text-sm leading-relaxed">
-                    {{ if eq $lang "es" }}
-                      Momento de revisión in situ: recorremos juntos el modelo 3D para verificar que todos los cambios se hayan implementado correctamente antes de la renderización final.
-                    {{ else if eq $lang "nl" }}
-                      Revisie moment op locatie: we lopen samen door het 3D model om te controleren of alle wijzigingen correct zijn doorgevoerd voordat we definitief gaan renderen.
-                    {{ else }}
-                      On-site review moment: we walk through the 3D model together to check that all changes have been implemented correctly before final rendering.
-                    {{ end }}
-                  </p>
-                </div>
-              </div>
-
-              <!-- Phase 5 -->
-              <div class="flex items-start">
-                <div class="flex-shrink-0 w-16 h-16 bg-primary rounded-full flex items-center justify-center text-white font-bold text-lg mr-6">
-                  <i class="fa-solid fa-palette"></i>
-                </div>
-                <div class="flex-grow bg-white rounded-lg p-6 shadow-md">
-                  <h4 class="text-lg font-semibold mb-2">
-                    {{ if eq $lang "es" }}
-                      Fase 5: Visualización, Ambiente y Luz
-                    {{ else if eq $lang "nl" }}
-                      Fase 5: Visualisatie, Sfeer & Licht
-                    {{ else }}
-                      Phase 5: Visualization, Atmosphere & Lighting
-                    {{ end }}
-                  </h4>
-                  <p class="text-gray-700 text-sm leading-relaxed">
-                    {{ if eq $lang "es" }}
-                      Con el modelo 'To-Be' listo, añadimos materiales finales, iluminación global y ambiente extra para crear visualizaciones fotorrealistas.
-                    {{ else if eq $lang "nl" }}
-                      Wanneer het 'To-Be'-model gereed is, worden de uiteindelijke materialen, globale verlichting en extra sfeer toegevoegd voor fotorealistische visualisaties.
-                    {{ else }}
-                      When the 'To-Be' model is ready, final materials, global lighting and extra atmosphere are added for photorealistic visualizations.
-                    {{ end }}
-                  </p>
-                </div>
-              </div>
-
-              <!-- Phase 6 -->
-              <div class="flex items-start">
-                <div class="flex-shrink-0 w-16 h-16 bg-primary rounded-full flex items-center justify-center text-white font-bold text-lg mr-6">
-                  <i class="fa-solid fa-image"></i>
-                </div>
-                <div class="flex-grow bg-white rounded-lg p-6 shadow-md">
-                  <h4 class="text-lg font-semibold mb-2">
-                    {{ if eq $lang "es" }}
-                      Fase 6: Presentación Final
-                    {{ else if eq $lang "nl" }}
-                      Fase 6: Eindpresentatie
-                    {{ else }}
-                      Phase 6: Final Presentation
-                    {{ end }}
-                  </h4>
-                  <p class="text-gray-700 text-sm leading-relaxed">
-                    {{ if eq $lang "es" }}
-                      Ronda final de feedback presencial sobre detalles y elección de materiales, seguida de la entrega definitiva con renders fotorrealistas de alta calidad.
-                    {{ else if eq $lang "nl" }}
-                      Laatste feedbackronde op locatie voor details en materiaalkeuzes, gevolgd door definitieve oplevering met hoogwaardige fotorealistische renders.
-                    {{ else }}
-                      Final feedback round on-site for details and material choices, followed by definitive delivery with high-quality photorealistic renders.
-                    {{ end }}
-                  </p>
-                </div>
-              </div>
+              {{ end }}
             </div>
           </div>
         </div>
@@ -362,261 +197,39 @@
         <!-- Deliverables Section -->
         <div class="bg-white rounded-2xl shadow-lg p-8">
           <div class="text-center mb-8">
-            <h2 class="text-h3 mb-4">
-              {{ if eq $lang "es" }}
-                Resultados a Entregar
-              {{ else if eq $lang "nl" }}
-                Te Leveren Resultaten
-              {{ else }}
-                Deliverable Results
-              {{ end }}
-            </h2>
-            <p class="text-lg opacity-80">
-              {{ if eq $lang "es" }}
-                Paquete digital completo para tu proyecto
-              {{ else if eq $lang "nl" }}
-                Compleet digitaal pakket voor uw project
-              {{ else }}
-                Complete digital package for your project
-              {{ end }}
-            </p>
+            <h2 class="text-h3 mb-4">{{ .Params.deliverables.title }}</h2>
+            <p class="text-lg opacity-80">{{ .Params.deliverables.description }}</p>
           </div>
 
           <div class="grid md:grid-cols-2 gap-6">
-            <!-- 2D Floor Plans -->
+            {{ range $item := .Params.deliverables.items }}
             <div class="deliverable-item p-6 border border-gray-200 rounded-lg hover:shadow-md transition-shadow">
               <div class="flex items-center mb-4">
                 <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mr-4">
-                  <i class="fa-solid fa-map text-primary text-xl"></i>
+                  <i class="{{ $item.icon }} text-primary text-xl"></i>
                 </div>
-                <h4 class="text-lg font-semibold">
-                  {{ if eq $lang "es" }}
-                    Planos 2D
-                  {{ else if eq $lang "nl" }}
-                    2D Plattegronden
-                  {{ else }}
-                    2D Floor Plans
-                  {{ end }}
-                </h4>
+                <h4 class="text-lg font-semibold">{{ $item.title }}</h4>
               </div>
-              <p class="text-sm text-gray-700 leading-relaxed">
-                {{ if eq $lang "es" }}
-                  Planos a escala de la nueva situación de todas las plantas y jardín. Esencial para comunicación con contratistas y ayuntamiento.
-                {{ else if eq $lang "nl" }}
-                  Schaalvaste plattegronden van de nieuwe situatie van alle verdiepingen en tuin. Essentieel voor communicatie met aannemers en gemeente.
-                {{ else }}
-                  Scale-accurate floor plans of the new situation for all floors and garden. Essential for communication with contractors and municipality.
-                {{ end }}
-              </p>
+              <p class="text-sm text-gray-700 leading-relaxed">{{ $item.description }}</p>
             </div>
-
-            <!-- Interactive 3D Model -->
-            <div class="deliverable-item p-6 border border-gray-200 rounded-lg hover:shadow-md transition-shadow">
-              <div class="flex items-center mb-4">
-                <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mr-4">
-                  <i class="fa-solid fa-cube text-primary text-xl"></i>
-                </div>
-                <h4 class="text-lg font-semibold">
-                  {{ if eq $lang "es" }}
-                    Modelo 3D Interactivo
-                  {{ else if eq $lang "nl" }}
-                    Interactief 3D-model
-                  {{ else }}
-                    Interactive 3D Model
-                  {{ end }}
-                </h4>
-              </div>
-              <p class="text-sm text-gray-700 leading-relaxed">
-                {{ if eq $lang "es" }}
-                  Modelo 3D completo que puedes ver en computadora o tablet. Incluye todas las dimensiones pero sin materiales finales.
-                {{ else if eq $lang "nl" }}
-                  Volledige 3D-model dat je zelf kunt bekijken op computer of tablet. Bevat alle maatvoering maar nog zonder uiteindelijke materialen.
-                {{ else }}
-                  Complete 3D model that you can view yourself on computer or tablet. Contains all dimensions but without final materials.
-                {{ end }}
-              </p>
-            </div>
-
-            <!-- Interior Renders -->
-            <div class="deliverable-item p-6 border border-gray-200 rounded-lg hover:shadow-md transition-shadow">
-              <div class="flex items-center mb-4">
-                <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mr-4">
-                  <i class="fa-solid fa-home text-primary text-xl"></i>
-                </div>
-                <h4 class="text-lg font-semibold">
-                  {{ if eq $lang "es" }}
-                    Renders Interiores (12 imágenes)
-                  {{ else if eq $lang "nl" }}
-                    Interieur Renders (12 beelden)
-                  {{ else }}
-                    Interior Renders (12 images)
-                  {{ end }}
-                </h4>
-              </div>
-              <p class="text-sm text-gray-700 leading-relaxed">
-                {{ if eq $lang "es" }}
-                  12 visualizaciones fotorrealistas 4K de los espacios interiores más importantes: cocina/sala, baño, escaleras, habitaciones especiales.
-                {{ else if eq $lang "nl" }}
-                  12 hoge resolutie (4K) fotorealistische visualisaties van de belangrijkste binnenruimtes: keuken/woonkamer, badkamer, trap, speciale kamers.
-                {{ else }}
-                  12 high-resolution (4K) photorealistic visualizations of the most important interior spaces: kitchen/living room, bathroom, stairs, special rooms.
-                {{ end }}
-              </p>
-            </div>
-
-            <!-- Exterior Renders -->
-            <div class="deliverable-item p-6 border border-gray-200 rounded-lg hover:shadow-md transition-shadow">
-              <div class="flex items-center mb-4">
-                <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mr-4">
-                  <i class="fa-solid fa-tree text-primary text-xl"></i>
-                </div>
-                <h4 class="text-lg font-semibold">
-                  {{ if eq $lang "es" }}
-                    Renders Exteriores (8 imágenes)
-                  {{ else if eq $lang "nl" }}
-                    Exterieur Renders (8 beelden)
-                  {{ else }}
-                    Exterior Renders (8 images)
-                  {{ end }}
-                </h4>
-              </div>
-              <p class="text-sm text-gray-700 leading-relaxed">
-                {{ if eq $lang "es" }}
-                  8 imágenes visuales de alta resolución (4K) con todos los detalles exteriores, jardín y elementos arquitectónicos.
-                {{ else if eq $lang "nl" }}
-                  8 visuele afbeeldingen met hoge resolutie (4K) met alle exterieur details, tuin en architectonische elementen.
-                {{ else }}
-                  8 high-resolution (4K) visual images with all exterior details, garden and architectural elements.
-                {{ end }}
-              </p>
-            </div>
-
-            <!-- 3D Video Walkthrough -->
-            <div class="deliverable-item p-6 border border-gray-200 rounded-lg hover:shadow-md transition-shadow">
-              <div class="flex items-center mb-4">
-                <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mr-4">
-                  <i class="fa-solid fa-video text-primary text-xl"></i>
-                </div>
-                <h4 class="text-lg font-semibold">
-                  {{ if eq $lang "es" }}
-                    Video 3D Walkthrough
-                  {{ else if eq $lang "nl" }}
-                    3D Video Walkthrough
-                  {{ else }}
-                    3D Video Walkthrough
-                  {{ end }}
-                </h4>
-              </div>
-              <p class="text-sm text-gray-700 leading-relaxed">
-                {{ if eq $lang "es" }}
-                  Video animación de 90-120 segundos que muestra un recorrido completo por la propiedad renovada.
-                {{ else if eq $lang "nl" }}
-                  Video-animatie van 90-120 seconden die een complete rondgang door het gerenoveerde pand toont.
-                {{ else }}
-                  90-120 second video animation showing a complete walkthrough of the renovated property.
-                {{ end }}
-              </p>
-            </div>
-
-            <!-- 360 Virtual Tour -->
-            <div class="deliverable-item p-6 border border-gray-200 rounded-lg hover:shadow-md transition-shadow">
-              <div class="flex items-center mb-4">
-                <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mr-4">
-                  <i class="fa-solid fa-vr-cardboard text-primary text-xl"></i>
-                </div>
-                <h4 class="text-lg font-semibold">
-                  {{ if eq $lang "es" }}
-                    Tour Virtual 360°
-                  {{ else if eq $lang "nl" }}
-                    360° Virtuele Tour
-                  {{ else }}
-                    360° Virtual Tour
-                  {{ end }}
-                </h4>
-              </div>
-              <p class="text-sm text-gray-700 leading-relaxed">
-                {{ if eq $lang "es" }}
-                  Tour virtual 360° interactivo donde puedes navegar tranquilamente por toda la casa para examinar los detalles.
-                {{ else if eq $lang "nl" }}
-                  Interactieve 360° virtuele tour waarin je in alle rust door het huis kunt navigeren om de details goed te bekijken.
-                {{ else }}
-                  Interactive 360° virtual tour where you can navigate through the house at your own pace to examine all details.
-                {{ end }}
-              </p>
-            </div>
+            {{ end }}
           </div>
 
           <!-- Project Timeline -->
           <div class="mt-8 p-6 bg-gray-50 rounded-lg">
-            <h4 class="text-lg font-semibold mb-4">
-              {{ if eq $lang "es" }}
-                Planificación y Progreso
-              {{ else if eq $lang "nl" }}
-                Planning & Voortgang
-              {{ else }}
-                Planning & Progress
-              {{ end }}
-            </h4>
+            <h4 class="text-lg font-semibold mb-4">{{ .Params.project_timeline.title }}</h4>
             <div class="grid md:grid-cols-3 gap-4 text-sm">
               <div>
-                <strong>
-                  {{ if eq $lang "es" }}
-                    Duración:
-                  {{ else if eq $lang "nl" }}
-                    Doorlooptijd:
-                  {{ else }}
-                    Duration:
-                  {{ end }}
-                </strong>
-                <p class="text-gray-700">
-                  {{ if eq $lang "es" }}
-                    5-6 semanas (con feedback oportuno)
-                  {{ else if eq $lang "nl" }}
-                    5-6 weken (bij tijdige feedback)
-                  {{ else }}
-                    5-6 weeks (with timely feedback)
-                  {{ end }}
-                </p>
+                <strong>Duration:</strong>
+                <p class="text-gray-700">{{ .Params.project_timeline.duration }}</p>
               </div>
               <div>
-                <strong>
-                  {{ if eq $lang "es" }}
-                    Pago:
-                  {{ else if eq $lang "nl" }}
-                    Betaling:
-                  {{ else }}
-                    Payment:
-                  {{ end }}
-                </strong>
-                <p class="text-gray-700">
-                  {{ if eq $lang "es" }}
-                    40% al inicio, 60% en la entrega
-                  {{ else if eq $lang "nl" }}
-                    40% bij aanvang, 60% bij oplevering
-                  {{ else }}
-                    40% at start, 60% upon delivery
-                  {{ end }}
-                </p>
+                <strong>Payment:</strong>
+                <p class="text-gray-700">{{ .Params.project_timeline.payment }}</p>
               </div>
               <div>
-                <strong>
-                  {{ if eq $lang "es" }}
-                    Revisiones:
-                  {{ else if eq $lang "nl" }}
-                    Revisies:
-                  {{ else }}
-                    Revisions:
-                  {{ end }}
-                </strong>
-                <p class="text-gray-700">
-                  {{ if eq $lang "es" }}
-                    2 rondas incluidas (€60/h extra)
-                  {{ else if eq $lang "nl" }}
-                    2 ronden inbegrepen (€60/u extra)
-                  {{ else }}
-                    2 rounds included (€60/h extra)
-                  {{ end }}
-                </p>
+                <strong>Revisions:</strong>
+                <p class="text-gray-700">{{ .Params.project_timeline.revisions }}</p>
               </div>
             </div>
           </div>
@@ -628,33 +241,9 @@
     <div class="row justify-center mt-12">
       <div class="lg:col-8 text-center">
         <div class="bg-gradient p-8 rounded-lg">
-          <h3 class="mb-4">
-            {{ if eq .Site.Language.Lang "es" }}
-              ¿Listo para Transformar Tu Espacio?
-            {{ else if eq .Site.Language.Lang "nl" }}
-              Klaar om Uw Ruimte te Transformeren?
-            {{ else }}
-              Ready to Transform Your Space?
-            {{ end }}
-          </h3>
-          <p class="mb-6">
-            {{ if eq .Site.Language.Lang "es" }}
-              Contáctanos hoy para una consulta gratuita y descubre cómo podemos hacer realidad tu visión.
-            {{ else if eq .Site.Language.Lang "nl" }}
-              Neem vandaag contact met ons op voor een gratis consultatie en ontdek hoe wij uw visie werkelijkheid kunnen maken.
-            {{ else }}
-              Contact us today for a free consultation and discover how we can make your vision a reality.
-            {{ end }}
-          </p>
-          <a href="/contact" class="btn btn-primary">
-            {{ if eq .Site.Language.Lang "es" }}
-              Obtener Consulta Gratuita
-            {{ else if eq .Site.Language.Lang "nl" }}
-              Gratis Consultatie Krijgen
-            {{ else }}
-              Get Free Consultation
-            {{ end }}
-          </a>
+          <h3 class="mb-4">{{ .Params.cta.title }}</h3>
+          <p class="mb-6">{{ .Params.cta.description }}</p>
+          <a href="{{ .Params.cta.button_link }}" class="btn btn-primary">{{ .Params.cta.button_label }}</a>
         </div>
       </div>
     </div>
