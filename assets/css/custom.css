@@ -74,7 +74,7 @@
 
 /* Timeline circle icons - override text color in dark mode */
 .flex-shrink-0.w-16.h-16.bg-primary.rounded-full {
-  @apply dark:bg-black;
+  @apply dark:bg-black relative z-10;
 }
 
 .flex-shrink-0.w-16.h-16.bg-primary.rounded-full.text-white {
